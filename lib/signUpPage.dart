@@ -32,6 +32,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  get emailController => null;
+
+  get confitmpasswordController => null;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -62,7 +66,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
+                controller: emailController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Email Adress',
@@ -84,7 +88,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
                 obscureText: true,
-                controller: passwordController,
+                controller: confitmpasswordController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: 'Confirm Password',
