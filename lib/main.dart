@@ -3,6 +3,7 @@ import 'package:demo_xyz/Model/Category.dart';
 import 'package:demo_xyz/MaterialColor.dart';
 import 'package:demo_xyz/Widget/CustomAppBar.dart';
 import 'package:demo_xyz/Widget/Slider.dart';
+import 'package:demo_xyz/splashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: buildMaterialColor(Color(0xFFFF5A5F)),
       ),
       debugShowCheckedModeBanner: false,
-      home: DemoXyz(),
+      home: SplashScreen(),
     );
   }
 }
