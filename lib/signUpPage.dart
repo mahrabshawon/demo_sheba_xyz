@@ -13,8 +13,10 @@ class signUp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
-        appBar: AppBar(title: const Text(_title),
-          backgroundColor: Colors.redAccent,),
+        appBar: AppBar(
+          title: const Text(_title),
+          backgroundColor: Colors.redAccent,
+        ),
         body: const MyStatefulWidget(),
       ),
     );
@@ -52,59 +54,104 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       fontWeight: FontWeight.w500,
                       fontSize: 30),
                 )),
-
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Name',
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                  ),
+                  hintText: 'User Name',
                 ),
+                cursorColor: Colors.grey,
+                controller: nameController,
+                // decoration: const InputDecoration(
+                //
+                //
+                //   // border: OutlineInputBorder(
+                //   //   borderSide: BorderSide(width: 3, color: Colors.grey),
+                //   // ),
+                //
+                //
+                //   labelText: 'User Name',
+                // ),
               ),
             ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Email Adress',
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                  ),
+                  hintText: 'Email or Mobile Number',
                 ),
+                cursorColor: Colors.grey,
+                controller: emailController,
+                // decoration: const InputDecoration(
+                //
+                //
+                //   // border: OutlineInputBorder(
+                //   //   borderSide: BorderSide(width: 3, color: Colors.grey),
+                //   // ),
+                //
+                //
+                //   labelText: 'User Name',
+                // ),
               ),
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                  ),
+                  hintText: 'Password',
+                ),
+                cursorColor: Colors.grey,
                 obscureText: true,
                 controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
+                // decoration: const InputDecoration(
+                //   border: OutlineInputBorder(),
+                //   labelText: 'Password',
+                // ),
               ),
             ),
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
               child: TextField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                  ),
+                  hintText: 'Confirm Password',
+                ),
+                cursorColor: Colors.grey,
                 obscureText: true,
                 controller: confitmpasswordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Confirm Password',
-                ),
+                // decoration: const InputDecoration(
+                //   border: OutlineInputBorder(),
+                //   labelText: 'Password',
+                // ),
               ),
             ),
-            // TextButton(
-            //   onPressed: () {
-            //     //forgot password screen
-            //   },
-            //   child: const Text('Forgot Password',),
-            // ),
+
             Padding(
               padding: const EdgeInsets.only(top: 11),
               child: Container(
-
                   height: 50,
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   child: ElevatedButton(
@@ -113,8 +160,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                       print(nameController.text);
                       print(passwordController.text);
                     },
-                  )
-              ),
+                  )),
             ),
             // Row(
             //   children: <Widget>[

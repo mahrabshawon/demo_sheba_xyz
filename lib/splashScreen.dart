@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import 'ServiceDetailsRoute.dart';
+import 'SignInPage.dart';
 import 'main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
           () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => DemoXyz(),
+            builder: (_) => signIn(),
           ),
         );
       },
