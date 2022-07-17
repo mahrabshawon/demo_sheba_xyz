@@ -1,14 +1,12 @@
-// import 'package:demo_xyz/ServicesDetailsRoute.dart';
+// import 'package:demo_xyz/AllServicesRoute.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'AllServiceRoute.dart';
 import 'Model/Category.dart';
-import 'ServiceDetailsRoute.dart';
+// import 'AllServicesRoute.dart';
 import 'Widget/CustomAppBar.dart';
 import 'Widget/Slider.dart';
-
-void main() {
-  runApp(const HomeRoute());
-}
 
 class HomeRoute extends StatefulWidget {
   const HomeRoute({Key? key}) : super(key: key);
@@ -21,56 +19,57 @@ class _HomeRouteState extends State<HomeRoute> {
   List<Category> categories = Category.categories;
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(60),
-        child: CustomAppBar("HomeRoute"),
+      appBar: AppBar(
+        leading: Container(
+          alignment: Alignment.centerRight,
+          child: const Icon(
+            Icons.location_on,
+            color: Colors.white,
+            size: 30,
+          ),
+        ),
+        title: GestureDetector(
+          onTap: () {
+            print("tapped subtitle");
+          },
+          child: Column(children: [
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "Mohammadpur",
+                style: TextStyle(
+                  fontSize: 16,
+                  color: Colors.white,
+                  fontFamily: "InterR",
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                "H # 211, Road # 20, Mohamm...",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white,
+                  fontFamily: "InterR",
+                ),
+              ),
+            ),
+          ]),
+        ),
       ),
       body: Container(
+        width: width,
         child: SingleChildScrollView(
           child: Column(
             children: [
-              //Address
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    const Icon(
-                      Icons.location_on,
-                      color: Color(0xFFFF5A5F),
-                      size: 40,
-                    ),
-                    const SizedBox(width: 5),
-                    RichText(
-                      text: TextSpan(
-                          text: "Mohammedpur\n",
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Color(0xFFFF5A5F),
-                            fontFamily: "InterR",
-                          ),
-                          children: [
-                            TextSpan(
-                              text: "H # 211, Road # 20, Mohamm...",
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontFamily: "InterR",
-                                color: Color(0xFF3C3C3C),
-                              ),
-                            ),
-                          ]),
-                    ),
-                    const SizedBox(width: 50),
-                    const Icon(
-                      Icons.expand_circle_down_rounded,
-                      color: Color(0xFFE5E5E5),
-                      size: 24,
-                    ),
-                  ],
-                ),
-              ),
               //Search
               Container(
+                width: MediaQuery.of(context).size.width,
+                //height: 18.h,
                 child: Padding(
                   padding:
                   const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
@@ -98,9 +97,13 @@ class _HomeRouteState extends State<HomeRoute> {
               CustomizeSlider(images),
               //Categories
               Container(
-                margin: EdgeInsets.fromLTRB(12, 20, 12, 12),
-                padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                height: 55.h,
+                width: width,
+                margin: EdgeInsets.fromLTRB(12, 20, 12, 0),
+                padding:
+                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                 decoration: BoxDecoration(
+                  //color: Colors.red,
                   border: Border.all(color: const Color(0xFF9A9A9A)),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -111,13 +114,13 @@ class _HomeRouteState extends State<HomeRoute> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SingleCategory(
-                            categories[0].image, categories[0].title),
+                            categories[0].image, categories[0].title, 0),
                         SingleCategory(
-                            categories[1].image, categories[1].title),
+                            categories[1].image, categories[1].title, 1),
                         SingleCategory(
-                            categories[2].image, categories[2].title),
+                            categories[2].image, categories[2].title, 2),
                         SingleCategory(
-                            categories[3].image, categories[3].title),
+                            categories[3].image, categories[3].title, 3),
                       ],
                     ),
                     SizedBox(height: 12),
@@ -125,13 +128,13 @@ class _HomeRouteState extends State<HomeRoute> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SingleCategory(
-                            categories[4].image, categories[4].title),
+                            categories[4].image, categories[4].title, 4),
                         SingleCategory(
-                            categories[5].image, categories[5].title),
+                            categories[5].image, categories[5].title, 5),
                         SingleCategory(
-                            categories[6].image, categories[6].title),
+                            categories[6].image, categories[6].title, 6),
                         SingleCategory(
-                            categories[7].image, categories[7].title),
+                            categories[7].image, categories[7].title, 7),
                       ],
                     ),
                     SizedBox(height: 12),
@@ -146,13 +149,18 @@ class _HomeRouteState extends State<HomeRoute> {
                     ),
                     InkWell(
                       child: Container(
+                        height: 8.h,
+                        width: width,
+                        // decoration: BoxDecoration(
+                        //   color: Colors.amber,
+                        // ),
                         child: Column(
                           children: [
                             Text(
                               "More Categories",
                               style: TextStyle(
                                 color: Color(0xFF9A9A9A),
-                                fontSize: 20,
+                                fontSize: 2.5.h,
                               ),
                             ),
                             Image.asset('assets/down.png')
@@ -166,65 +174,80 @@ class _HomeRouteState extends State<HomeRoute> {
                   ],
                 ),
               ),
-              SizedBox(height: 10),
+
+              SizedBox(height: 5.w),
               //Slide banner 2
               CustomizeSlider(banner2),
               //Trending
-              Column(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Trending",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "InterS",
-                              color: Color(0xFF000000),
+              Container(
+                height: 55.h,
+                width: width,
+                //margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                // decoration: BoxDecoration(
+                //   color: Colors.grey,
+                // ),
+                child: Column(
+                  children: [
+                    //Trending & see all
+                    Container(
+                      margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 8, vertical: 8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Trending",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 5.3.w,
+                                fontFamily: "InterS",
+                                color: Color(0xFF000000),
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          child: Text(
-                            "See all",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: "InterR",
-                              color: Color(0xFFFF5A5F),
+                          Container(
+                            child: Text(
+                              "See all",
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontSize: 4.w,
+                                fontFamily: "InterR",
+                                color: Color(0xFFFF5A5F),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 5),
+                    //1st row image and text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 9.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: const AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame9.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
+                              // decoration: BoxDecoration(color: Colors.amber),
                               child: Text(
                                 "AC Services",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
@@ -235,56 +258,60 @@ class _HomeRouteState extends State<HomeRoute> {
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 10.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame10.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
                             SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
+                              // color: Colors.amber,
                               child: Text(
                                 "Painting & Renovation",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
                               ),
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 15),
+                    //2nd row image and text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 11.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: const AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame11.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
                               child: Text(
                                 "Car Services",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
@@ -295,90 +322,107 @@ class _HomeRouteState extends State<HomeRoute> {
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 12.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame12.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
                             SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
                               child: Text(
-                                "Cleanning & Pest",
+                                "Cleaning & Pest",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
                               ),
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               //Recommended
-              Column(
-                children: [
-                  Padding(
-                    padding:
-                    const EdgeInsets.only(left: 15, right: 15, top: 10),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          child: Text(
-                            "Recommended",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "InterS",
-                              color: Color(0xFF000000),
+              Container(
+                height: 55.h,
+                width: width,
+                //margin: EdgeInsets.fromLTRB(12, 15, 12, 0),
+                // decoration: BoxDecoration(
+                //   color: Colors.grey,
+                // ),
+                child: Column(
+                  children: [
+                    //Recommended & see all
+                    Container(
+                      margin: EdgeInsets.fromLTRB(10, 8, 10, 8),
+                      // padding: const EdgeInsets.symmetric(
+                      //     horizontal: 8, vertical: 8),
+                      //padding: EdgeInsets.all(8),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            child: Text(
+                              "Recommended",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 5.3.w,
+                                fontFamily: "InterS",
+                                color: Color(0xFF000000),
+                              ),
                             ),
                           ),
-                        ),
-                        Container(
-                          child: Text(
-                            "See all",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontFamily: "InterR",
-                              color: Color(0xFFFF5A5F),
+                          Container(
+                            child: Text(
+                              "See all",
+                              textAlign: TextAlign.right,
+                              style: TextStyle(
+                                fontSize: 4.w,
+                                fontFamily: "InterR",
+                                color: Color(0xFFFF5A5F),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 5),
+                    //1st row image and text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 9.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: const AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame9.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
+                              // decoration: BoxDecoration(color: Colors.amber),
                               child: Text(
                                 "AC Services",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
@@ -389,56 +433,60 @@ class _HomeRouteState extends State<HomeRoute> {
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 10.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame10.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
                             SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
+                              // color: Colors.amber,
                               child: Text(
                                 "Painting & Renovation",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
                               ),
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 5, right: 5, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    SizedBox(height: 15),
+                    //2nd row image and text
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 11.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: const AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame11.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
                               child: Text(
                                 "Car Services",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
@@ -449,249 +497,171 @@ class _HomeRouteState extends State<HomeRoute> {
                         Column(
                           children: [
                             Container(
-                              height: 104.0,
-                              width: 180.0,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(
-                                  image: AssetImage('assets/Frame 12.png'),
-                                  fit: BoxFit.fill,
+                              height: 17.h,
+                              width: width / 2 - 3.h,
+                              child: AspectRatio(
+                                aspectRatio: 16 / 9,
+                                child: Image(
+                                  image: AssetImage('assets/Frame12.png'),
+                                  fit: BoxFit.fill, // use this
                                 ),
-                                // shape: BoxShape.circle,
                               ),
                             ),
                             SizedBox(height: 10),
                             Container(
+                              width: width / 2 - 3.h,
                               child: Text(
-                                "Cleanning & Pest",
+                                "Cleaning & Pest",
+                                textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 14,
+                                  fontSize: 3.5.w,
                                   fontFamily: "InterR",
                                   color: Color(0xFF3C3C3C),
                                 ),
                               ),
                             )
                           ],
-                        ),
+                        )
                       ],
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               //Banner 1
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 10, left: 5, right: 5, bottom: 10),
-                child: Container(
-                  height: 72.0,
-                  width: 388.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Color(0xFFFF5A5F),
-                        Color(0xFF087E8B),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            "Basic\nServices",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: "InterBL",
-                              color: Color(0xFFFFFFFF),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: RichText(
-                            text: TextSpan(
-                              text: "40% Off\n",
-                              style: TextStyle(
-                                fontSize: 36,
-                                fontFamily: "InterBL",
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "Start from 999 Tk.",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: "InterM",
-                                    color: Color(0xFFD9D9D9),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+              Container(
+                height: 15.h,
+                width: width,
+                child: _customBanner(
+                    "Basic\nServices", "40% Off\n", "Start from 999 Tk."),
               ),
               //Banner 2
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 10, left: 5, right: 5, bottom: 10),
-                child: Container(
-                  height: 72.0,
-                  width: 388.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Color(0xFFFF5A5F),
-                        Color(0xFF087E8B),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            "Master\nServices",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: "InterBL",
-                              color: Color(0xFFFFFFFF),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: RichText(
-                            text: TextSpan(
-                              text: "50% Off\n",
-                              style: TextStyle(
-                                fontSize: 36,
-                                fontFamily: "InterBL",
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "Start from 1799 Tk.",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: "InterM",
-                                    color: Color(0xFFD9D9D9),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              Container(
+                  height: 15.h,
+                  width: width,
+                  child: _customBanner(
+                      "Master\nServices", "50% Off\n", "Start from 1799 Tk.")),
               //Banner 3
-              Padding(
-                padding: const EdgeInsets.only(
-                    top: 10, left: 5, right: 5, bottom: 10),
-                child: Container(
-                  height: 72.0,
-                  width: 388.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topRight,
-                      end: Alignment.bottomLeft,
-                      colors: [
-                        Color(0xFFFF5A5F),
-                        Color(0xFF087E8B),
-                      ],
-                    ),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(20),
-                    ),
+              Container(
+                  height: 15.h,
+                  width: width,
+                  child: _customBanner(
+                      "Premium\nServices", "60% Off\n", "Start from 2599 Tk.")),
+
+              //Ask me banner
+              Container(
+                //height: 15.h,
+                width: width,
+                margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+
+                child:
+                Stack(alignment: Alignment.bottomLeft, children: <Widget>[
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     gradient: LinearGradient(
+                  //       begin: Alignment.topRight,
+                  //       end: Alignment.bottomLeft,
+                  //       colors: [
+                  //         Color(0xFFFF5A5F),
+                  //         Colors.white,
+                  //       ],
+                  //     ),
+                  //     borderRadius: BorderRadius.all(
+                  //       Radius.circular(20),
+                  //     ),
+                  //     image: DecorationImage(
+                  //       image: AssetImage('assets/Rectangle 16.png'),
+                  //       fit: BoxFit.cover,
+                  //     ),
+                  //   ),
+                  // ),
+                  Image(
+                    image: new AssetImage('assets/Rectangle 16.png'),
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  Column(
                     children: [
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Text(
-                            "Premium\nServices",
-                            style: TextStyle(
-                              fontSize: 30,
-                              fontFamily: "InterBL",
-                              color: Color(0xFFFFFFFF),
-                            ),
+                        //padding: EdgeInsets.all(3.h),
+                        padding: EdgeInsets.fromLTRB(3.h, 0, 0, 0),
+                        child: Text(
+                          'Ask Me!',
+                          style: TextStyle(
+                            fontSize: 5.h,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "InterM",
+                            color: Colors.white,
                           ),
                         ),
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 20),
-                          child: RichText(
-                            text: TextSpan(
-                              text: "60% Off\n",
-                              style: TextStyle(
-                                fontSize: 36,
-                                fontFamily: "InterBL",
-                                color: Color(0xFFFFFFFF),
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: "Start from 2599 Tk.",
-                                  style: TextStyle(
-                                    fontSize: 17,
-                                    fontFamily: "InterM",
-                                    color: Color(0xFFD9D9D9),
-                                  ),
-                                ),
-                              ],
+                        padding: EdgeInsets.all(3.h),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            onPrimary: Colors.white,
+                            primary: Color(0xFFFF5A5F),
+                            // minimumSize: Size(88, 36),
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            // shape: ElevatedButton.styleFrom(
+                            //   primary: ThemeColors.darkBg,
+                            //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0), side: BorderSide(color: Colors.black)),
+                            // ),
+                          ),
+                          child: Text(
+                            'Call ME',
+                            style: TextStyle(
+                              fontSize: 5.w,
+                              fontFamily: "InterM",
+                              color: Colors.white,
                             ),
                           ),
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AllServiceRoute(0)),
+                            );
+                          },
                         ),
-                      )
+                      ),
                     ],
                   ),
-                ),
+                ]),
+                // child: const AspectRatio(
+                //   aspectRatio: 16 / 9,
+                //   child: Image(
+                //     image: AssetImage('assets/Rectangle 16.png'),
+                //     fit: BoxFit.fill, // use this
+                //   ),
+                // ),
               ),
               //All service Button
               Container(
-                  margin: EdgeInsets.all(25),
+                //height: 15.h,
+                  width: width,
+                  margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       onPrimary: Colors.grey[300],
                       primary: Color(0xFFFF5A5F),
                       minimumSize: Size(88, 36),
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      //padding: EdgeInsets.symmetric(horizontal: 16),
                       // shape: ElevatedButton.styleFrom(
                       //   primary: ThemeColors.darkBg,
                       //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0), side: BorderSide(color: Colors.black)),
                       // ),
                     ),
-                    child: Text('All Services'),
+                    child: Text(
+                      'All Services',
+                      style: TextStyle(
+                        fontSize: 5.w,
+                        fontFamily: "InterM",
+                        color: Color(0xFFFFFFFF),
+                      ),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ServicesDetailsRoute()),
+                            builder: (context) => AllServiceRoute(0)),
                       );
                     },
                   )),
@@ -702,27 +672,110 @@ class _HomeRouteState extends State<HomeRoute> {
     );
   }
 
-  Widget SingleCategory(String image, String title) {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          backgroundColor: const Color(0xFFFF5A5F),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(5.0),
-            child: Image.asset(image),
-          ),
+  Widget _customBanner(String serviceType, String discount, String price) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      margin: const EdgeInsets.fromLTRB(8, 8, 8, 8),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topRight,
+          end: Alignment.bottomLeft,
+          colors: [
+            Color(0xFFFF5A5F),
+            Color(0xFF087E8B),
+          ],
         ),
-        const SizedBox(height: 5),
-        Text(
-          title,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 12,
-          ),
+        borderRadius: BorderRadius.all(
+          Radius.circular(20),
         ),
-      ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 15),
+              child: Text(
+                serviceType,
+                style: TextStyle(
+                  fontSize: 3.8.h,
+                  fontFamily: "InterBL",
+                  color: Color(0xFFFFFFFF),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.only(right: 20),
+              child: RichText(
+                text: TextSpan(
+                  text: discount,
+                  style: TextStyle(
+                    fontSize: 3.3.h,
+                    fontFamily: "InterBL",
+                    color: Color(0xFFFFFFFF),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: price,
+                      style: TextStyle(
+                        fontSize: 2.3.h,
+                        fontFamily: "InterM",
+                        color: Color(0xFFD9D9D9),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget SingleCategory(String image, String title, int clickedIndex) {
+    return GestureDetector(
+      onTap: () => {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => AllServiceRoute(clickedIndex)),
+        )
+      },
+      child: Column(
+        children: [
+          CircleAvatar(
+            radius: 5.h,
+            backgroundColor: const Color(0xFFFF5A5F),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(5.0),
+              child: Image.asset(image),
+            ),
+          ),
+          const SizedBox(height: 5),
+          Container(
+            //width: double.infinity,
+            height: 6.h,
+            width: 10.h,
+            // decoration: BoxDecoration(
+            //   color: Colors.amber,
+            // ),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+              style: const TextStyle(
+                color: Colors.black,
+                fontSize: 12,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -756,8 +809,8 @@ class _HomeRouteState extends State<HomeRoute> {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(12, 20, 12, 12),
-                padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
+                //margin: const EdgeInsets.fromLTRB(12, 20, 12, 12),
+                //padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -765,13 +818,13 @@ class _HomeRouteState extends State<HomeRoute> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SingleCategory(
-                            categories[0].image, categories[0].title),
+                            categories[0].image, categories[0].title, 0),
                         SingleCategory(
-                            categories[1].image, categories[1].title),
+                            categories[1].image, categories[1].title, 1),
                         SingleCategory(
-                            categories[2].image, categories[2].title),
+                            categories[2].image, categories[2].title, 2),
                         SingleCategory(
-                            categories[3].image, categories[3].title),
+                            categories[3].image, categories[3].title, 3),
                       ],
                     ),
                     SizedBox(height: 12),
@@ -779,13 +832,13 @@ class _HomeRouteState extends State<HomeRoute> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SingleCategory(
-                            categories[4].image, categories[4].title),
+                            categories[4].image, categories[4].title, 4),
                         SingleCategory(
-                            categories[5].image, categories[5].title),
+                            categories[5].image, categories[5].title, 5),
                         SingleCategory(
-                            categories[6].image, categories[6].title),
+                            categories[6].image, categories[6].title, 6),
                         SingleCategory(
-                            categories[7].image, categories[7].title),
+                            categories[7].image, categories[7].title, 7),
                       ],
                     ),
                     SizedBox(height: 12),
@@ -801,21 +854,21 @@ class _HomeRouteState extends State<HomeRoute> {
   }
 
   List<String> images = [
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
-    "assets/Frame 4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
+    "assets/Frame4.png",
   ];
   List<String> banner2 = [
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
-    "assets/Frame 7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
+    "assets/Frame7.png",
   ];
 }

@@ -6,12 +6,7 @@ import 'package:demo_xyz/Widget/Slider.dart';
 import 'package:demo_xyz/splashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
-// import 'ServicesDetailsRoute.dart';
-// import 'Widget/CustomBottomNavigationBar.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,14 +19,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String title = "Demo.xyz";
-    return MaterialApp(
-      title: title,
-      theme: ThemeData(
-        primarySwatch: buildMaterialColor(Color(0xFFFF5A5F)),
-      ),
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
+    return ResponsiveSizer(builder: (context, orientation, screenType) {
+      return MaterialApp(
+        title: title,
+        theme: ThemeData(
+          primarySwatch: buildMaterialColor(Color(0xFFFF5A5F)),
+        ),
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      );
+    });
   }
 }
 
@@ -71,7 +68,7 @@ class _DemoXyzState extends State<DemoXyz> {
             .copyWith(), // sets the inactive color of the `BottomNavigationBar`
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          unselectedItemColor: Color(0xFF9A9A9A),
+          unselectedItemColor: Colors.white,
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.black,
           onTap: _onItemTapped,

@@ -1,23 +1,18 @@
-import 'package:flutter/material.dart';
-
-import '../HomeRoute.dart';
-
 class Category {
+  int cat_id;
   String image;
   String title;
-  Category(this.image, this.title);
+
+  Category(this.cat_id, this.image, this.title);
+
   static List<Category> categories = <Category>[
-
-
-    Category("assets/o1_Group.png", "AC Repair\nServices"),
-
-    Category("assets/o2_Group.png", "Appliance\nRepair"),
-
-    Category("assets/o3_Group.png", "Beauty \n& Salon"),
-    Category("assets/o4_Group.png", "Trips &\nTravels"),
-    Category("assets/o5_Group.png", "Car Care\nServices"),
-    Category("assets/o6_Group.png", "Cleaning\n& Pest"),
-    Category("assets/o7_Group.png", "Painting &\nRenovation"),
-    Category("assets/o8_Group.png", "Packing & \nShifting")
+    Category(0, "assets/o1_Group.png", "AC Repair Services"),
+    Category(1, "assets/o2_Group.png", "Appliance Repair"),
+    Category(2, "assets/o3_Group.png", "Beauty & Salon"),
+    Category(3, "assets/o4_Group.png", "Trips & Travels"),
+    Category(4, "assets/o5_Group.png", "Car Care Services"),
+    Category(5, "assets/o6_Group.png", "Cleaning & Pest"),
+    Category(6, "assets/o7_Group.png", "Painting & Renovation"),
+    Category(7, "assets/o8_Group.png", "Packing & Shifting")
   ];
 }

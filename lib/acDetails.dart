@@ -28,7 +28,7 @@ class acDetails extends StatelessWidget {
                 SingleChildScrollView(
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 15, right: 15, top: 11),
+                    const EdgeInsets.only(left: 15, right: 15, top: 11),
                     child: Container(
                       child: Row(
                         children: const <Widget>[
@@ -140,7 +140,7 @@ class acDetails extends StatelessWidget {
                     child: Expanded(
                       child: Text(
                         'Trusted & Reliable Ac Technicians\n'
-                        'On Time Work Completion',
+                            'On Time Work Completion',
                         style: TextStyle(fontSize: 7),
                       ),
                     ),
@@ -162,11 +162,11 @@ class acDetails extends StatelessWidget {
                   child: Container(
                     child: Text(
                       'AC Filter Cleaning With Air Conditioner Brush(Indoor Only\n'
-                      'AC Panel Cleaning\n'
-                      'Checking and Testing of the electrical parts\n'
-                      '7 Days Service Warranty\n'
-                      'Check "Additional"work Scope & Price Excludes Sections for the Services that are not coverd within the sevice '
-                      ' )',
+                          'AC Panel Cleaning\n'
+                          'Checking and Testing of the electrical parts\n'
+                          '7 Days Service Warranty\n'
+                          'Check "Additional"work Scope & Price Excludes Sections for the Services that are not coverd within the sevice '
+                          ' )',
                       style: TextStyle(fontSize: 11),
                     ),
                   ),
@@ -210,8 +210,8 @@ class acDetails extends StatelessWidget {
                     child: Expanded(
                       child: Text(
                         'Components/Materials or Parts(if used)\n'
-                        'Transparent (if applicable)\n'
-                        'Other Service(if Taken)',
+                            'Transparent (if applicable)\n'
+                            'Other Service(if Taken)',
                         style: TextStyle(fontSize: 7),
                       ),
                     ),
@@ -234,12 +234,12 @@ class acDetails extends StatelessWidget {
                     child: Expanded(
                       child: Text(
                         'Repair, Parts maintanance/replacement,and Overhaul are not Included\n'
-                        'For the Ac outdoor unit,AC outdoor unit,AC jet wash or AC jet wash or AC master service needs to be taken\n'
-                        'Leakage detection : A nitrogen test needs to be done to identify  the location of the leakage\n'
-                        'Gas Refill\n'
-                        'other AC service\n'
-                        'Warranty given by the manufacturer for any material purchased'
-                        ')',
+                            'For the Ac outdoor unit,AC outdoor unit,AC jet wash or AC jet wash or AC master service needs to be taken\n'
+                            'Leakage detection : A nitrogen test needs to be done to identify  the location of the leakage\n'
+                            'Gas Refill\n'
+                            'other AC service\n'
+                            'Warranty given by the manufacturer for any material purchased'
+                            ')',
                         style: TextStyle(fontSize: 7),
                       ),
                     ),
@@ -284,9 +284,9 @@ class acDetails extends StatelessWidget {
                     child: Expanded(
                       child: Text(
                         'Demo.xyz will not be liable for liable for any '
-                        'pre-existing issues/Potential'
-                        'risks reported  by the sPro but not handled due to'
-                        ' custromer refusal to repair the same',
+                            'pre-existing issues/Potential'
+                            'risks reported  by the sPro but not handled due to'
+                            ' custromer refusal to repair the same',
                         style: TextStyle(fontSize: 7),
                       ),
                     ),

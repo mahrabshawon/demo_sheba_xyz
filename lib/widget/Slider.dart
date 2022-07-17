@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class CustomizeSlider extends StatefulWidget {
   List<String> images;
@@ -28,7 +29,7 @@ class _CustomizeSliderState extends State<CustomizeSlider> {
 
   Widget buildImage(String image, int index) {
     return Container(
-      //margin: EdgeInsets.symmetric(horizontal: 3),
+      margin: EdgeInsets.symmetric(horizontal: 3),
       child: Image.asset(
         image,
         fit: BoxFit.cover,
@@ -52,7 +53,7 @@ class _CustomizeSliderState extends State<CustomizeSlider> {
                   return buildImage(image, index);
                 },
                 options: CarouselOptions(
-                  height: 120,
+                  height: 18.h,
                   autoPlay: true,
                   autoPlayInterval: Duration(seconds: 3),
                   onPageChanged: (index, reason) =>

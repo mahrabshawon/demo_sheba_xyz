@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-import 'ServiceDetailsRoute.dart';
 import 'SignInPage.dart';
 import 'main.dart';
 
@@ -34,18 +33,16 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
-          height: MediaQuery.of(context).size.height ,
+          height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           alignment: Alignment.center,
-          padding:EdgeInsets.all(17.0),
+          padding: EdgeInsets.all(17.0),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage('assets/back.jpg'),
               fit: BoxFit.cover,
             ),
           ),
-
-
           child: Container(
             child: Center(
               child: Column(
@@ -65,11 +62,5 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
-
-
-
-
   }
-
-
 }
