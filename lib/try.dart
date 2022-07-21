@@ -22,7 +22,7 @@ class test extends StatefulWidget {
   int checkedIndex = 0;
 
   List<Category> categories = Category.categories;
-  List<SubCategory> services = SubCategory.services;
+  List<SubCategory> services = SubCategory.subCategories;
 
   test({Key? key}) : super(key: key);
 

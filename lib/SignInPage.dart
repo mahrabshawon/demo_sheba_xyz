@@ -1,6 +1,7 @@
 import 'package:demo_xyz/signUpPage.dart';
 import 'package:flutter/material.dart';
 
+import 'SingleDetailsRoute.dart';
 import 'main.dart';
 
 // void main() => runApp(const signIn());
@@ -150,7 +151,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     ),
                   )
                 ],
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment:MainAxisAlignment.center,
               ),
             ),
           ],

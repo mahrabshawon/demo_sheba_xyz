@@ -5,11 +5,13 @@ import 'package:flutter/material.dart';
 import 'Model/Category.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'SingleDetailsRoute.dart';
+
 class AllServiceRoute extends StatefulWidget {
   int checkedIndex;
 
   List<Category> categories = Category.categories;
-  List<SubCategory> services = SubCategory.services;
+  List<SubCategory> subCategories = SubCategory.subCategories;
 
   AllServiceRoute(this.checkedIndex, {Key? key}) : super(key: key);
 
@@ -66,7 +68,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               //height: MediaQuery.of(context).size.height,
               alignment: Alignment.topCenter,
               decoration: BoxDecoration(color: Colors.white),
-              child: detailsView(widget.checkedIndex, widget.services),
+              child: detailsView(widget.checkedIndex, widget.subCategories),
             )
           ],
         ),
@@ -81,7 +83,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
       onTap: () {
         setState(() {
           widget.checkedIndex = index;
-          print(widget.checkedIndex);
+          //print(widget.checkedIndex);
         });
       },
       child: Stack(
@@ -103,13 +105,16 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                   width: 5.h,
                 ),
                 const SizedBox(height: 5),
-                Text(
-                  category[index].title,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.black,
-                    // color: Colors.black,
-                    fontSize: .3.cm,
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    category[index].title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.black,
+                      // color: Colors.black,
+                      fontSize: .3.cm,
+                    ),
                   ),
                 ),
               ],
@@ -137,15 +142,15 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
     );
   }
 
-  Widget detailsView(int checkedIndex, List<SubCategory> services) {
+  Widget detailsView(int checkedIndex, List<SubCategory> subCategories) {
     List<SubCategory> subCat = [];
-    int totalItem = itemCounter(services);
-    int catId = services[widget.checkedIndex].catID;
+    int totalItem = itemCounter(subCategories);
+    int catId = widget.categories[widget.checkedIndex].cat_id;
     String title = widget.categories[catId].title;
     print("$catId   $title");
     setState(() {
       //widget.checkedIndex = index;
-      subCat = item(widget.checkedIndex, services);
+      subCat = item(subCategories);
     });
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
@@ -168,7 +173,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               separatorBuilder: (context, index) {
                 return Divider();
               },
-              itemCount: itemCounter(services),
+              itemCount: itemCounter(subCategories),
               itemBuilder: (BuildContext context, int index) {
                 return Container(
                   padding: EdgeInsets.fromLTRB(0, .6.h, 0, .6.h),
@@ -178,6 +183,16 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                       height: 10.h,
                       width: 10.h,
                     ),
+                    onTap: () => {
+                      print(subCat[index].serID.toString()),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          //subCategories[index].serID
+                          builder: (context) => SingleDetailsRoute(),
+                        ),
+                      ),
+                    },
                     // trailing: Text(
                     //   "GFG",
                     //   style: TextStyle(color: Colors.green, fontSize: 15),
@@ -213,12 +228,12 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
     return itemCounter;
   }
 
-  List<SubCategory> item(int checkedIndex, List<SubCategory> services) {
+  List<SubCategory> item(List<SubCategory> services) {
     List<SubCategory> subCategory = [];
-    int itemCounter = 0;
+    //int itemCounter = 0;
     for (var i = 0; i < services.length; i++) {
-      if (services[i].catID == checkedIndex) {
-        itemCounter = itemCounter + 1;
+      if (services[i].catID == widget.checkedIndex) {
+        //itemCounter = itemCounter + 1;
         subCategory.add(services[i]);
       }
     }

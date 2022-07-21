@@ -1,7 +1,8 @@
 // import 'package:demo_xyz/AllServicesRoute.dart';
+import 'package:demo_xyz/mapImplements.dart';
+// import 'package:google_maps_widget/google_maps_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import 'AllServiceRoute.dart';
 import 'Model/Category.dart';
 // import 'AllServicesRoute.dart';
@@ -32,9 +33,12 @@ class _HomeRouteState extends State<HomeRoute> {
           ),
         ),
         title: GestureDetector(
-          onTap: () {
-            print("tapped subtitle");
-          },
+          // onTap: () => Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) => map(),
+          //   ),
+          // ),
           child: Column(children: [
             Container(
               alignment: Alignment.centerLeft,

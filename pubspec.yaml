@@ -39,6 +39,9 @@ dependencies:
   carousel_slider: ^4.1.1
   smooth_page_indicator: ^1.0.0+2
   collapsible_sidebar: ^2.0.1+2
+#  google_maps_widget: ^1.0.4
+#  google_maps_flutter: ^0.4.0
+  google_maps_flutter: ^2.1.8
 
 
 dev_dependencies:
