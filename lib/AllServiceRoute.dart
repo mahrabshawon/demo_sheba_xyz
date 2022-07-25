@@ -189,7 +189,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                         context,
                         MaterialPageRoute(
                           //subCategories[index].serID
-                          builder: (context) => SingleDetailsRoute(),
+                          builder: (context) => SingleDetailsRoute(index),
                         ),
                       ),
                     },

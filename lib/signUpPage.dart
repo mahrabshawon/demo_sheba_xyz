@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const signUp());
+// void main() => runApp(const signUp());
 
 class signUp extends StatelessWidget {
   const signUp({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class signUp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(_title),
-          backgroundColor: Colors.redAccent,
+            backgroundColor: Color(0xFF32C7CC),
         ),
         body: const MyStatefulWidget(),
       ),

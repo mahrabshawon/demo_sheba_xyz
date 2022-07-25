@@ -1,7 +1,7 @@
 import 'package:demo_xyz/signUpPage.dart';
 import 'package:flutter/material.dart';
-
-import 'SingleDetailsRoute.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'SigunUp.dart';
 import 'main.dart';
 
 // void main() => runApp(const signIn());
@@ -18,10 +18,13 @@ class signIn extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(_title),
+          title: const Text(
+            _title,
+            style: TextStyle(color: Colors.black, fontFamily: "InterR"),
+          ),
           actions: <Widget>[
             FlatButton(
-              textColor: Colors.white,
+              textColor: Colors.black,
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -32,7 +35,7 @@ class signIn extends StatelessWidget {
               shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
             ),
           ],
-          backgroundColor: Colors.redAccent,
+          backgroundColor: Color(0xFF32C7CC),
         ),
         body: const MyStatefulWidget(),
       ),
@@ -53,108 +56,162 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xFF32C7CC),
+              Color(0xFF07D765),
+            ],
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
             Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
+                alignment: Alignment.topLeft,
+                padding: EdgeInsets.all(15),
                 child: const Text(
-                  'Sign In',
+                  'Welcome Back!\nLet\'s sign you in',
                   style: TextStyle(
-                      color: Colors.orangeAccent,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 30),
+                      fontFamily: "InterR",
+                      color: Colors.orange,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 25),
                 )),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
-                  ),
-                  hintText: 'User Name',
-                ),
-                cursorColor: Colors.grey,
-                controller: nameController,
-                // decoration: const InputDecoration(
-                //
-                //
-                //   // border: OutlineInputBorder(
-                //   //   borderSide: BorderSide(width: 3, color: Colors.grey),
-                //   // ),
-                //
-                //
-                //   labelText: 'User Name',
-                // ),
-              ),
-
+            SizedBox(
+              height: 5.h,
             ),
+            //UserName
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              width: MediaQuery.of(context).size.width,
+              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+              height: 10.h,
+              //color: Colors.amber,
               child: TextField(
+                controller: nameController,
+                //readOnly: true,
+                showCursor: true,
+                cursorColor: Colors.orange,
                 decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.blueGrey, width: 2.0),
+                  border: OutlineInputBorder(
+                    borderSide:
+                    const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey, width: 2.0),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                    const BorderSide(color: Colors.black, width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  hintText: 'UserName',
+                ),
+              ),
+            ),
+
+            //Password
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 10.h,
+              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+              //height: 18.h,
+              child: TextField(
+                cursorColor: Colors.orange,
+                obscureText: true,
+                controller: passwordController,
+                showCursor: true,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                    borderSide:
+                    const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                    const BorderSide(color: Colors.black, width: 1.0),
+                    borderRadius: BorderRadius.circular(10),
                   ),
                   hintText: 'Password',
                 ),
-                cursorColor: Colors.grey,
-                obscureText: true,
-                controller: passwordController,
-                // decoration: const InputDecoration(
-                //   border: OutlineInputBorder(),
-                //   labelText: 'Password',
-                // ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text(
-                'Forgot Password',
               ),
             ),
             Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              alignment: Alignment.topLeft,
+              child: TextButton(
+                onPressed: () {
+                  //forgot password screen
+                },
+                child: const Text(
+                  'Forgot Password?',
+                  style: TextStyle(color: Color(0xFF9A9A9A)),
+                ),
+              ),
+            ),
+            Container(
+                width: double.infinity,
+                height: 10.h,
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                ),
                 child: ElevatedButton(
-                  child: const Text('SignIn'),
+                  child: Text(
+                    'Sign in',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18,
+                      fontFamily: "InterR",
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                  ),
                   onPressed: () {
                     print(nameController.text);
                     print(passwordController.text);
                   },
                 )),
-            Padding(
-              padding: const EdgeInsets.only(top: 371),
+            Container(
+              width: double.infinity,
+              height: 20.h,
               child: Row(
                 children: <Widget>[
-                  const Text('Does not have account?'),
+                  const Text(
+                    'Does not have account?  ',
+                    style: TextStyle(
+                      fontSize: 16,
+                    ),
+                  ),
                   GestureDetector(
                     child: const Text(
-                      'Sign Up',
-                      style: TextStyle(fontSize: 20),
+                      'Register Now',
+                      style: TextStyle(
+                          color: Colors.orange,
+                          fontSize: 16,
+                          fontFamily: "InterR",
+                          fontWeight: FontWeight.bold),
                     ),
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => signUp(),
+                        builder: (context) => signUppage(),
                       ),
                     ),
                   )
                 ],
-                mainAxisAlignment:MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
               ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
