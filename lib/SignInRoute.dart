@@ -1,13 +1,11 @@
-import 'package:demo_xyz/signUpPage.dart';
+import 'package:demo_xyz/SignUpRoute.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'SigunUp.dart';
+
 import 'main.dart';
 
-// void main() => runApp(const signIn());
-
-class signIn extends StatelessWidget {
-  const signIn({Key? key}) : super(key: key);
+class Demo_XYZ extends StatelessWidget {
+  const Demo_XYZ({Key? key}) : super(key: key);
 
   static const String _title = 'Demo.xyz';
 
@@ -28,29 +26,30 @@ class signIn extends StatelessWidget {
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DemoXyz(),
+                  builder: (context) => BottomNavigation(),
                 ),
               ),
               child: Text("Skip"),
               shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
             ),
           ],
-          backgroundColor: Color(0xFF32C7CC),
+          //backgroundColor: Color(0xFF32C7CC),
+          backgroundColor: Color(0xFFFFB317),
         ),
-        body: const MyStatefulWidget(),
+        body: const SignInRoute(),
       ),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
+class SignInRoute extends StatefulWidget {
+  const SignInRoute({Key? key}) : super(key: key);
 
   @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+  State<SignInRoute> createState() => _SignInRouteState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _SignInRouteState extends State<SignInRoute> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -63,14 +62,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.all(15),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xFF32C7CC),
-              Color(0xFF07D765),
-            ],
-          ),
+          color: Colors.white,
+          // gradient: LinearGradient(
+          //   begin: Alignment.topRight,
+          //   end: Alignment.bottomLeft,
+          //   colors: [
+          //     Color(0xFF32C7CC),
+          //     Color(0xFF07D765),
+          //   ],
+          // ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -82,7 +82,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   'Welcome Back!\nLet\'s sign you in',
                   style: TextStyle(
                       fontFamily: "InterR",
-                      color: Colors.orange,
+                      color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 25),
                 )),
@@ -99,7 +99,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nameController,
                 //readOnly: true,
                 showCursor: true,
-                cursorColor: Colors.orange,
+                cursorColor: Color(0xFFFFB317),
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderSide:
@@ -123,7 +123,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
               //height: 18.h,
               child: TextField(
-                cursorColor: Colors.orange,
+                cursorColor: Color(0xFFFFB317),
                 obscureText: true,
                 controller: passwordController,
                 showCursor: true,
@@ -144,13 +144,14 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
             Container(
               alignment: Alignment.topLeft,
+              padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
               child: TextButton(
                 onPressed: () {
                   //forgot password screen
                 },
                 child: const Text(
                   'Forgot Password?',
-                  style: TextStyle(color: Color(0xFF9A9A9A)),
+                  style: TextStyle(color: Colors.black),
                 ),
               ),
             ),
@@ -165,13 +166,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   child: Text(
                     'Sign in',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontFamily: "InterR",
-                    ),
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontFamily: "InterR",
+                        fontWeight: FontWeight.bold),
                   ),
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.orange,
+                    primary: Color(0xFFFFB317),
                   ),
                   onPressed: () {
                     print(nameController.text);
@@ -193,7 +194,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     child: const Text(
                       'Register Now',
                       style: TextStyle(
-                          color: Colors.orange,
+                          color: Color(0xFFFFB317),
                           fontSize: 16,
                           fontFamily: "InterR",
                           fontWeight: FontWeight.bold),
@@ -201,7 +202,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => signUppage(),
+                        builder: (context) => SignUpRoute(),
                       ),
                     ),
                   )

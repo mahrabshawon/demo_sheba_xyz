@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         title: title,
         theme: ThemeData(
-          primarySwatch: buildMaterialColor(Color(0xFFFF5A5F)),
+          primarySwatch: buildMaterialColor(Color(0xFF6AF0FF)),
         ),
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
@@ -32,14 +32,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class DemoXyz extends StatefulWidget {
-  DemoXyz({Key? key}) : super(key: key);
+class BottomNavigation extends StatefulWidget {
+  BottomNavigation({Key? key}) : super(key: key);
 
   @override
-  State<DemoXyz> createState() => _DemoXyzState();
+  State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
-class _DemoXyzState extends State<DemoXyz> {
+class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -72,7 +72,7 @@ class _DemoXyzState extends State<DemoXyz> {
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.black,
           onTap: _onItemTapped,
-          backgroundColor: const Color(0xFFFF5A5F),
+          backgroundColor: const Color(0xFF6AF0FF),
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

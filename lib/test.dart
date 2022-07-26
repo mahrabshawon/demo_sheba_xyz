@@ -1,160 +1,185 @@
-import 'dart:math' as math show pi;
-
-import 'package:collapsible_sidebar/collapsible_sidebar.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+final Color darkBlue = Color.fromARGB(255, 18, 32, 47);
+
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: darkBlue),
       debugShowCheckedModeBanner: false,
-      title: 'Sidebar ui',
       home: Scaffold(
-        body: SidebarPage(),
+        appBar: AppBar(title: Text("Example")),
+        body: Center(
+          child: MyWidget(),
+        ),
       ),
     );
   }
 }
 
-class SidebarPage extends StatefulWidget {
+class MyWidget extends StatefulWidget {
+  const MyWidget() : super();
+
   @override
-  _SidebarPageState createState() => _SidebarPageState();
+  _MyWidgetState createState() => _MyWidgetState();
 }
 
-class _SidebarPageState extends State<SidebarPage> {
-  late List<CollapsibleItem> _items;
-  late String _headline;
-  AssetImage _avatarImg = AssetImage('assets/man.png');
+class _MyWidgetState extends State<MyWidget> {
+  int currTab = 0;
+  ScrollController _scrollController = ScrollController();
+  List<String> items = <String>[
+    "Overview",
+    "Details",
+    "Service Request",
+    "FAQ",
+    "Why Choose us",
+    "Reviews"
+  ];
 
   @override
   void initState() {
     super.initState();
-    _items = _generateItems;
-    _headline = _items.firstWhere((item) => item.isSelected).text;
+    _scrollController = ScrollController()
+      ..addListener(() {
+        //print("offset = ${_scrollController.offset}");
+        currTab = (_scrollController.offset) ~/ (150);
+        print(currTab);
+        setState(() {});
+      });
   }
 
-  List<CollapsibleItem> get _generateItems {
-    return [
-      CollapsibleItem(
-        text: 'Dashboard',
-        icon: Icons.assessment,
-        onPressed: () => setState(() => _headline = 'DashBoard'),
-        isSelected: true,
-      ),
-      CollapsibleItem(
-        text: 'Ice-Cream',
-        icon: Icons.icecream,
-        onPressed: () => setState(() => _headline = 'Errors'),
-      ),
-      CollapsibleItem(
-        text: 'Search',
-        icon: Icons.search,
-        onPressed: () => setState(() => _headline = 'Search'),
-      ),
-      CollapsibleItem(
-        text: 'Notifications',
-        icon: Icons.notifications,
-        onPressed: () => setState(() => _headline = 'Notifications'),
-      ),
-      CollapsibleItem(
-        text: 'Settings',
-        icon: Icons.settings,
-        onPressed: () => setState(() => _headline = 'Settings'),
-      ),
-      CollapsibleItem(
-        text: 'Home',
-        icon: Icons.home,
-        onPressed: () => setState(() => _headline = 'Home'),
-      ),
-      CollapsibleItem(
-        text: 'Alarm',
-        icon: Icons.access_alarm,
-        onPressed: () => setState(() => _headline = 'Alarm'),
-      ),
-      CollapsibleItem(
-        text: 'Eco',
-        icon: Icons.eco,
-        onPressed: () => setState(() => _headline = 'Eco'),
-      ),
-      CollapsibleItem(
-        text: 'Event',
-        icon: Icons.event,
-        onPressed: () => setState(() => _headline = 'Event'),
-      ),
-      CollapsibleItem(
-        text: 'Email',
-        icon: Icons.email,
-        onPressed: () => setState(() => _headline = 'Email'),
-      ),
-      CollapsibleItem(
-        text: 'Face',
-        icon: Icons.face,
-        onPressed: () => setState(() => _headline = 'Face'),
-      ),
-    ];
+  @override
+  void dispose() {
+    _scrollController
+        .dispose(); // it is a good practice to dispose the controller
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return SafeArea(
-      child: CollapsibleSidebar(
-        isCollapsed: true,
-        items: _items,
-        avatarImg: _avatarImg,
-        title: 'John Smith',
-        onTitleTap: () {
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Yay! Flutter Collapsible Sidebar!')));
-        },
-        body: _body(size, context),
-        backgroundColor: Colors.black,
-        selectedTextColor: Colors.limeAccent,
-        textStyle: TextStyle(fontSize: 15, fontStyle: FontStyle.italic),
-        titleStyle: TextStyle(
-            fontSize: 20,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.bold),
-        toggleTitleStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        sidebarBoxShadow: [
-          BoxShadow(
-            color: Colors.indigo,
-            blurRadius: 20,
-            spreadRadius: 0.01,
-            offset: Offset(3, 3),
-          ),
-          BoxShadow(
-            color: Colors.green,
-            blurRadius: 50,
-            spreadRadius: 0.01,
-            offset: Offset(3, 3),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _body(Size size, BuildContext context) {
-    return Container(
-      height: double.infinity,
-      width: double.infinity,
-      color: Colors.blueGrey[50],
-      child: Center(
-        child: Transform.rotate(
-          angle: math.pi / 2,
-          child: Transform.translate(
-            offset: Offset(-size.height * 0.3, -size.width * 0.23),
-            child: Text(
-              _headline,
-              style: Theme.of(context).textTheme.headline1,
-              overflow: TextOverflow.visible,
-              softWrap: false,
-            ),
+    return Column(
+      children: <Widget>[
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: <Widget>[
+              for (int i = 0; i < items.length; i++)
+                InkWell(
+                    child: Container(
+                      height: 40,
+                      margin: EdgeInsets.all(8),
+                      decoration: new BoxDecoration(
+                          color: i == currTab ? Colors.amber : Colors.blue,
+                          borderRadius:
+                          new BorderRadius.all(Radius.circular(15.0))),
+                      child: Container(
+                        alignment: Alignment.center,
+                        padding: EdgeInsets.all(8),
+                        child: Expanded(
+                          child: Text(
+                            items[i],
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 17,
+                              fontFamily: "InterM",
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    onTap: () {
+                      setState(() {
+                        if (i == 0) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        } else if (i == 1) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        } else if (i == 2) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        } else if (i == 3) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        } else if (i == 4) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        } else if (i == 5) {
+                          _scrollController.jumpTo(i * (150).toDouble());
+                        }
+                      });
+                    }),
+            ],
           ),
         ),
-      ),
+        Expanded(
+            child: ListView(
+              controller: _scrollController,
+              children: <Widget>[
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Image.asset('assets/Frame4.png'),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Image.asset('assets/Frame4.png'),
+                ),
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Image.asset('assets/Frame4.png'),
+                ),
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Image.asset('assets/Frame4.png'),
+                ),
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Image.asset('assets/Frame4.png'),
+                ),
+                Container(
+                  height: 150,
+                  color: Colors.red,
+                  padding: EdgeInsets.all(8),
+                  child: Image.asset('assets/Frame4.png'),
+                ),
+                // for (int i = 0; i < 100; i++)
+                //   Container(
+                //       color: Colors.deepPurple,
+                //       height: 30,
+                //       child: Text("Content at 1 -" + i.toString())),
+                // for (int i = 0; i < 100; i++)
+                //   Container(
+                //       color: Colors.green,
+                //       height: 30,
+                //       child: Text("Content at 2 -" + i.toString())),
+                // for (int i = 0; i < 100; i++)
+                //   Container(
+                //       color: Colors.pink,
+                //       height: 30,
+                //       child: Text("Content at 3 -" + i.toString())),
+                // for (int i = 0; i < 100; i++)
+                //   Container(
+                //       color: Colors.grey,
+                //       height: 30,
+                //       child: Text("Content at 4 -" + i.toString())),
+              ],
+            )),
+      ],
     );
   }
 }

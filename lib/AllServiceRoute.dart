@@ -37,10 +37,10 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
             style: TextStyle(
               fontSize: .5.cm,
               fontFamily: "InterR",
-              color: Color(0xFFFFFFFF),
+              color: Colors.black,
             ),
           ),
-          backgroundColor: Color(0xFFFF5A5F),
+          backgroundColor:Color(0xFFFFB317),
         ),
       ),
       body: Container(
@@ -92,7 +92,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: checked ? Colors.white : Color(0xFFFF5A5F),
+              color: checked ? Colors.white : Color(0xFFFFB317),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -100,13 +100,14 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               children: [
                 Image.asset(
                   category[index].image,
-                  color: checked ? Color(0xFFFF5A5F) : Colors.white,
+                  color: checked ? Color(0xFFFFB317)
+                      : Colors.white,
                   height: 5.h,
                   width: 5.h,
                 ),
-                const SizedBox(height: 5),
+                //const SizedBox(height: 5),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.fromLTRB(3, 3, 3, 0),
                   child: Text(
                     category[index].title,
                     textAlign: TextAlign.center,
@@ -189,7 +190,8 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                         context,
                         MaterialPageRoute(
                           //subCategories[index].serID
-                          builder: (context) => SingleDetailsRoute(index),
+                          builder: (context) =>
+                              SingleDetailsRoute(subCat[index].serID.toInt()),
                         ),
                       ),
                     },

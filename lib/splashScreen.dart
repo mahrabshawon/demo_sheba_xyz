@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-
-import 'SignInPage.dart';
+import 'SignInRoute.dart';
 import 'main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -18,10 +17,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(
       Duration(seconds: 5),
-          () {
+      () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => signIn(),
+            builder: (_) => Demo_XYZ(),
           ),
         );
       },
@@ -31,33 +30,67 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          alignment: Alignment.center,
-          padding: EdgeInsets.all(17.0),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/back.jpg'),
-              fit: BoxFit.cover,
-            ),
+      // body: Container(
+      //   height: MediaQuery.of(context).size.height,
+      //   width: MediaQuery.of(context).size.width,
+      //   alignment: Alignment.center,
+      //   padding: EdgeInsets.all(17.0),
+      //   decoration: BoxDecoration(
+      //     color: Color();
+      //       // image: DecorationImage(
+      //       //   image: AssetImage('assets/back.jpg'),
+      //       //   fit: BoxFit.cover,
+      //       // ),
+      //       ),
+      //   child: Container(
+      //     child: Center(
+      //       child: Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         children: [
+      //           Image.asset('assets/service.jpg'),
+      //           SizedBox(
+      //             height: 30,
+      //           ),
+      //           CircularProgressIndicator(
+      //             valueColor: AlwaysStoppedAnimation(Colors.black),
+      //           )
+      //         ],
+      //       ),
+      //     ),
+      //   ),
+      // ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Color(0xFF32C7CC),
+              Color(0xFF07D765),
+            ],
           ),
-          child: Container(
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset('assets/service.jpg'),
-                  SizedBox(
-                    height: 30,
-                  ),
-                  CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation(Colors.black),
-                  )
-                ],
+        ),
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Service.xyz",
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.deepOrange,
+                  fontFamily: "InterR",
+                ),
               ),
-            ),
+              SizedBox(
+                height: 30,
+              ),
+              CircularProgressIndicator(
+                valueColor: AlwaysStoppedAnimation(Colors.black),
+              )
+            ],
           ),
         ),
       ),

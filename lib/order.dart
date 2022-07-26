@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
-// void main() {
-//   runApp(const orderPage());
-// }
-
-class order extends StatelessWidget {
-  const order({Key? key}) : super(key: key);
+class orderPage extends StatelessWidget {
+  const orderPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    // double height = MediaQuery.of(context).size.height;
+    // double width = MediaQuery.of(context).size.width;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -99,10 +94,10 @@ class OutlinedCardExample extends StatelessWidget {
                 '4-5 Ton \n \n \n 899৳/unit',
                 style: TextStyle(
 
-                    // decoration: TextDecoration.underline,
-                    // decorationStyle: TextDecorationStyle.dashed,
+                  // decoration: TextDecoration.underline,
+                  // decorationStyle: TextDecorationStyle.dashed,
 
-                    ),
+                ),
               ),
             ),
           ),

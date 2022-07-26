@@ -1,12 +1,12 @@
-import 'package:demo_xyz/signUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'SignInRoute.dart';
 import 'main.dart';
 
 // void main() => runApp(const signIn());
 
-class signUppage extends StatelessWidget {
-  const signUppage({Key? key}) : super(key: key);
+class SignUpRoute extends StatelessWidget {
+  const SignUpRoute({Key? key}) : super(key: key);
 
   static const String _title = 'Demo.xyz';
 
@@ -17,9 +17,9 @@ class signUppage extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.amberAccent,
+          backgroundColor: Color(0xFFFFB317),
         ),
-        body: const MyStatefulWidget(),
+        body: SingleChildScrollView(child: const MyStatefulWidget()),
       ),
     );
   }
@@ -47,7 +47,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: Colors.amber,
+        color: Colors.white,
         // gradient: LinearGradient(
         //   begin: Alignment.topRight,
         //   end: Alignment.bottomLeft,
@@ -61,12 +61,12 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-              alignment: Alignment.center,
+              alignment: Alignment.topLeft,
               child: const Text(
-                'Sign Up',
+                'Create An Account',
                 style: TextStyle(
                     fontFamily: "InterR",
-                    color: Colors.orange,
+                    color: Color(0xFFFFB317),
                     fontWeight: FontWeight.w500,
                     fontSize: 25),
               )),
@@ -86,7 +86,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -110,7 +110,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -136,7 +136,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -148,31 +148,31 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
             ),
           ),
           //Confirm Password
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: 10.h,
-            padding: EdgeInsets.all(10),
-            //height: 18.h,
-            child: TextField(
-              cursorColor: Colors.grey,
-              obscureText: true,
-              controller: passwordController,
-              // readOnly: true,
-              showCursor: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.black, width: 1.0),
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                hintText: 'Confirm Password',
-              ),
-            ),
-          ),
+          // Container(
+          //   width: MediaQuery.of(context).size.width,
+          //   height: 10.h,
+          //   padding: EdgeInsets.all(10),
+          //   //height: 18.h,
+          //   child: TextField(
+          //     cursorColor: Colors.grey,
+          //     obscureText: true,
+          //     controller: passwordController,
+          //     // readOnly: true,
+          //     showCursor: true,
+          //     decoration: InputDecoration(
+          //       border: OutlineInputBorder(
+          //         borderSide:
+          //             const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+          //         borderRadius: BorderRadius.circular(10),
+          //       ),
+          //       focusedBorder: OutlineInputBorder(
+          //         borderSide: const BorderSide(color: Colors.black, width: 1.0),
+          //         borderRadius: BorderRadius.circular(10),
+          //       ),
+          //       hintText: 'Confirm Password',
+          //     ),
+          //   ),
+          // ),
           Container(
               width: double.infinity,
               height: 10.h,
@@ -190,13 +190,45 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.orange,
+                  primary: Color(0xFFFFB317),
                 ),
                 onPressed: () {
                   print(nameController.text);
                   print(passwordController.text);
                 },
               )),
+
+          Container(
+            width: double.infinity,
+            height: 20.h,
+            child: Row(
+              children: <Widget>[
+                const Text(
+                  'Already have an account?  ',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
+                ),
+                GestureDetector(
+                  child: const Text(
+                    'Sign In',
+                    style: TextStyle(
+                        color: Colors.orange,
+                        fontSize: 16,
+                        fontFamily: "InterR",
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignInRoute(),
+                    ),
+                  ),
+                )
+              ],
+              mainAxisAlignment: MainAxisAlignment.center,
+            ),
+          ),
         ],
       ),
     );

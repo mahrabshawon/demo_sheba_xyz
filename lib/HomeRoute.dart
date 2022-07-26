@@ -1,8 +1,7 @@
 // import 'package:demo_xyz/AllServicesRoute.dart';
-import 'package:demo_xyz/mapImplements.dart';
-// import 'package:google_maps_widget/google_maps_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 import 'AllServiceRoute.dart';
 import 'Model/Category.dart';
 // import 'AllServicesRoute.dart';
@@ -24,21 +23,19 @@ class _HomeRouteState extends State<HomeRoute> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
         leading: Container(
           alignment: Alignment.centerRight,
           child: const Icon(
             Icons.location_on,
-            color: Colors.white,
+            color: Color(0xFFFFB317),
             size: 30,
           ),
         ),
         title: GestureDetector(
-          // onTap: () => Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => map(),
-          //   ),
-          // ),
+          onTap: () {
+            print("tapped subtitle");
+          },
           child: Column(children: [
             Container(
               alignment: Alignment.centerLeft,
@@ -46,7 +43,7 @@ class _HomeRouteState extends State<HomeRoute> {
                 "Mohammadpur",
                 style: TextStyle(
                   fontSize: 16,
-                  color: Colors.white,
+                  color: Color(0xFFFFB317),
                   fontFamily: "InterR",
                 ),
               ),
@@ -57,7 +54,7 @@ class _HomeRouteState extends State<HomeRoute> {
                 "H # 211, Road # 20, Mohamm...",
                 style: TextStyle(
                   fontSize: 12,
-                  color: Colors.white,
+                  color: Color(0xFFFFB317),
                   fontFamily: "InterR",
                 ),
               ),
@@ -78,7 +75,8 @@ class _HomeRouteState extends State<HomeRoute> {
                   padding:
                   const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                   child: TextField(
-                    readOnly: true,
+                    cursorColor: Color(0xFFFFB317),
+                    // readOnly: true,
                     showCursor: true,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
@@ -88,7 +86,7 @@ class _HomeRouteState extends State<HomeRoute> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide: const BorderSide(
-                            color: Color(0xFFFF5A5F), width: 1.0),
+                            color: Color(0xFFFFB317), width: 1.0),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       hintText: 'Enter a search term',
@@ -101,19 +99,20 @@ class _HomeRouteState extends State<HomeRoute> {
               CustomizeSlider(images),
               //Categories
               Container(
-                height: 55.h,
+                height: 42.h,
                 width: width,
+                alignment: Alignment.center,
                 margin: EdgeInsets.fromLTRB(12, 20, 12, 0),
-                padding:
-                const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+                padding: EdgeInsets.fromLTRB(8, 8, 8, 0),
                 decoration: BoxDecoration(
-                  //color: Colors.red,
+                  color: Colors.red,
                   border: Border.all(color: const Color(0xFF9A9A9A)),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
+                    SizedBox(height: 5.w),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -127,7 +126,7 @@ class _HomeRouteState extends State<HomeRoute> {
                             categories[3].image, categories[3].title, 3),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 5.w),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -141,7 +140,7 @@ class _HomeRouteState extends State<HomeRoute> {
                             categories[7].image, categories[7].title, 7),
                       ],
                     ),
-                    SizedBox(height: 12),
+                    SizedBox(height: 5.w),
                     const Divider(
                       thickness: 1, // thickness of the line
                       indent: 20, // empty space to the leading edge of divider.
@@ -149,25 +148,29 @@ class _HomeRouteState extends State<HomeRoute> {
                       20, // empty space to the trailing edge of the divider.
                       color: Color(
                           0xFF9A9A9A), // The color to use when painting the line.
-                      height: 20, // The divider's height extent.
+                      height: 10, // The divider's height extent.
                     ),
                     InkWell(
                       child: Container(
-                        height: 8.h,
+                        height: 6.h,
                         width: width,
-                        // decoration: BoxDecoration(
-                        //   color: Colors.amber,
-                        // ),
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          color: Colors.amber,
+                        ),
                         child: Column(
                           children: [
                             Text(
                               "More Categories",
                               style: TextStyle(
-                                color: Color(0xFF9A9A9A),
-                                fontSize: 2.5.h,
+                                color: Colors.black,
+                                fontSize: 18,
                               ),
                             ),
-                            Image.asset('assets/down.png')
+                            Image.asset(
+                              'assets/down.png',
+                              color: Colors.black,
+                            )
                           ],
                         ),
                       ),
@@ -218,7 +221,7 @@ class _HomeRouteState extends State<HomeRoute> {
                               style: TextStyle(
                                 fontSize: 4.w,
                                 fontFamily: "InterR",
-                                color: Color(0xFFFF5A5F),
+                                color: Color(0xFF32C7CC),
                               ),
                             ),
                           ),
@@ -393,7 +396,7 @@ class _HomeRouteState extends State<HomeRoute> {
                               style: TextStyle(
                                 fontSize: 4.w,
                                 fontFamily: "InterR",
-                                color: Color(0xFFFF5A5F),
+                                color: Color(0xFF32C7CC),
                               ),
                             ),
                           ),
@@ -536,20 +539,20 @@ class _HomeRouteState extends State<HomeRoute> {
                 height: 15.h,
                 width: width,
                 child: _customBanner(
-                    "Basic\nServices", "40% Off\n", "Start from 999 Tk."),
+                    "Basic\nServices", "40% Off\n", "Start from \$999."),
               ),
               //Banner 2
               Container(
                   height: 15.h,
                   width: width,
                   child: _customBanner(
-                      "Master\nServices", "50% Off\n", "Start from 1799 Tk.")),
+                      "Master\nServices", "50% Off\n", "Start from \$1799.")),
               //Banner 3
               Container(
                   height: 15.h,
                   width: width,
                   child: _customBanner(
-                      "Premium\nServices", "60% Off\n", "Start from 2599 Tk.")),
+                      "Premium\nServices", "60% Off\n", "Start from \$2599.")),
 
               //Ask me banner
               Container(
@@ -601,7 +604,7 @@ class _HomeRouteState extends State<HomeRoute> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             onPrimary: Colors.white,
-                            primary: Color(0xFFFF5A5F),
+                            primary: Color(0xFF32C7CC),
                             // minimumSize: Size(88, 36),
                             padding: EdgeInsets.symmetric(horizontal: 16),
                             // shape: ElevatedButton.styleFrom(
@@ -645,7 +648,7 @@ class _HomeRouteState extends State<HomeRoute> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       onPrimary: Colors.grey[300],
-                      primary: Color(0xFFFF5A5F),
+                      primary: Color(0xFF32C7CC),
                       minimumSize: Size(88, 36),
                       //padding: EdgeInsets.symmetric(horizontal: 16),
                       // shape: ElevatedButton.styleFrom(
@@ -686,8 +689,8 @@ class _HomeRouteState extends State<HomeRoute> {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color(0xFFFF5A5F),
-            Color(0xFF087E8B),
+            Color(0xFF32C7CC),
+            Color(0xFF07D765),
           ],
         ),
         borderRadius: BorderRadius.all(
@@ -741,44 +744,103 @@ class _HomeRouteState extends State<HomeRoute> {
   }
 
   Widget SingleCategory(String image, String title, int clickedIndex) {
-    return GestureDetector(
-      onTap: () => {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => AllServiceRoute(clickedIndex)),
-        )
-      },
-      child: Column(
-        children: [
-          CircleAvatar(
-            radius: 5.h,
-            backgroundColor: const Color(0xFFFF5A5F),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(5.0),
-              child: Image.asset(image),
-            ),
-          ),
-          const SizedBox(height: 5),
-          Container(
-            //width: double.infinity,
-            height: 6.h,
-            width: 10.h,
-            // decoration: BoxDecoration(
-            //   color: Colors.amber,
-            // ),
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 2,
-              style: const TextStyle(
-                color: Colors.black,
-                fontSize: 12,
+    // return Container(
+    //   color: Colors.grey,
+    //   child: GestureDetector(
+    //     onTap: () => {
+    //       Navigator.push(
+    //         context,
+    //         MaterialPageRoute(
+    //             builder: (context) => AllServiceRoute(clickedIndex)),
+    //       )
+    //     },
+    //     child: Column(
+    //       children: [
+    //         Image.asset(
+    //           image,
+    //           color: Color(0xFFFFB317),
+    //         ),
+    //         const SizedBox(height: 5),
+    //         Container(
+    //           //width: double.infinity,
+    //           height: 6.h,
+    //           width: 10.h,
+    //           color: Colors.grey,
+    //           // decoration: BoxDecoration(
+    //           //   color: Colors.amber,
+    //           // ),
+    //           child: Text(
+    //             title,
+    //             textAlign: TextAlign.center,
+    //             overflow: TextOverflow.ellipsis,
+    //             maxLines: 2,
+    //             style: const TextStyle(
+    //               color: Colors.black,
+    //               fontSize: 12,
+    //             ),
+    //           ),
+    //         ),
+    //       ],
+    //     ),
+    //   ),
+    // );
+    return Container(
+      width: 12.h,
+      height: 12.h,
+      child: GestureDetector(
+        child: Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Color(0xFF32C7CC),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    image,
+                    color: Colors.white,
+                    height: 5.h,
+                    width: 5.h,
+                  ),
+                  //const SizedBox(height: 5),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(3, 3, 3, 0),
+                    child: Text(
+                      title,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        // color: Colors.black,
+                        fontSize: .3.cm,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
+            // Positioned(
+            //   top: 12,
+            //   right: 12,
+            //   child: Offstage(
+            //     offstage: !checked,
+            //     child: Container(
+            //       decoration: BoxDecoration(
+            //           color: Colors.white,
+            //           border: Border.all(width: 2),
+            //           shape: BoxShape.circle),
+            //       child: Icon(
+            //         Icons.check,
+            //         color: Colors.red,
+            //       ),
+            //     ),
+            //   ),
+            // ),
+          ],
+        ),
       ),
     );
   }

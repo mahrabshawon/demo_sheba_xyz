@@ -26,7 +26,7 @@ class SingleDetailsRoute extends StatelessWidget {
         appBar: AppBar(
           title: Text(subCategories[checkedIndex].title),
           centerTitle: false,
-          backgroundColor: Colors.orange,
+          backgroundColor: Color(0xFFFFB317),
         ),
         body: Container(
           width: width,
@@ -221,7 +221,7 @@ class SingleDetailsRoute extends StatelessWidget {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image:
-                            AssetImage(subCategories[checkedIndex].image),
+                                AssetImage(subCategories[checkedIndex].image),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -283,7 +283,7 @@ class SingleDetailsRoute extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image:
-                                      AssetImage('assets/close-small.png'),
+                                          AssetImage('assets/close-small.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -310,7 +310,7 @@ class SingleDetailsRoute extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image:
-                                      AssetImage('assets/close-small.png'),
+                                          AssetImage('assets/close-small.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -336,7 +336,7 @@ class SingleDetailsRoute extends StatelessWidget {
                   child: Text(
                     'Whats Included?',
                     style:
-                    TextStyle(fontSize: 2.5.h, fontWeight: FontWeight.bold),
+                        TextStyle(fontSize: 2.5.h, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
@@ -380,19 +380,21 @@ class SingleDetailsRoute extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(8),
               child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.deepOrange, // background
-                ),
+                style: ElevatedButton.styleFrom(primary: Color(0xFFFFB317)
+                    // background
+                    ),
                 child: Text(
                   'Order Now',
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
                 ),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       //subCategories[index].serID
-                      builder: (context) => order(),
+                      builder: (context) => orderPage(),
                     ),
                   );
                 },
@@ -401,4 +403,6 @@ class SingleDetailsRoute extends StatelessWidget {
           ),
         ));
   }
+
+  orderPage() {}
 }

@@ -22,7 +22,7 @@ class _CustomizeSliderState extends State<CustomizeSlider> {
         dotHeight: 8,
         dotWidth: 8,
         dotColor: Color(0xFFD9D9D9),
-        activeDotColor: Color(0xFFFF5A5F),
+        activeDotColor: Color(0xFFFFB317),
       ),
     );
   }
