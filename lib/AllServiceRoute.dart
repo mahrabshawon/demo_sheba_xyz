@@ -29,7 +29,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.white),
+            icon: const Icon(Icons.arrow_back, color: Colors.black),
             onPressed: () => Navigator.of(context).pop(),
           ),
           title: Text(
@@ -40,7 +40,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               color: Colors.black,
             ),
           ),
-          backgroundColor:Color(0xFFFFB317),
+          backgroundColor: Color(0xFFFFB317),
         ),
       ),
       body: Container(
@@ -100,8 +100,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               children: [
                 Image.asset(
                   category[index].image,
-                  color: checked ? Color(0xFFFFB317)
-                      : Colors.white,
+                  color: checked ? Color(0xFFFFB317) : Colors.white,
                   height: 5.h,
                   width: 5.h,
                 ),
@@ -189,7 +188,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          //subCategories[index].serID
+                          // subCategories[index].serID
                           builder: (context) =>
                               SingleDetailsRoute(subCat[index].serID.toInt()),
                         ),

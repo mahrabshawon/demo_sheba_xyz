@@ -1,12 +1,36 @@
+// import 'package:flutter/material.dart';
+//
+// void main() => runApp(const signUpApi());
+//
+// class signUpApi extends StatelessWidget {
+//   const signUpApi({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text('Signup as Service Provider'),
+//           backgroundColor: Color(0xFFFFB317),
+//         ),
+// body: ,
+//       ),
+//     );
+//   }
+// }
+
+
+
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'SignInRoute.dart';
 import 'main.dart';
 
-// void main() => runApp(const signIn());
+// void main() => runApp(const signUpApi());
 
-class SignUpRoute extends StatelessWidget {
-  const SignUpRoute({Key? key}) : super(key: key);
+class signUpApi extends StatelessWidget {
+  const signUpApi({Key? key}) : super(key: key);
 
   static const String _title = 'Demo.xyz';
 
@@ -16,25 +40,30 @@ class SignUpRoute extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: _title,
       home: Scaffold(
+        // appBar: AppBar(
+        //   title: const Text(
+        //     _title,
+        //     style: TextStyle(color: Colors.black, fontFamily: "InterR"),
+        //   ),
+        //   // actions: <Widget>[
+        //   //   FlatButton(
+        //   //     textColor: Colors.black,
+        //   //     child: Text("Skip"),
+        //   //     onPressed: () => Navigator.push(
+        //   //       context,
+        //   //       MaterialPageRoute(
+        //   //         builder: (context) => BottomNavigation(),
+        //   //       ),
+        //   //     ),
+        //   //     shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+        //   //   ),
+        //   // ],
+        //   //backgroundColor: Color(0xFF32C7CC),
+        //   backgroundColor: Color(0xFFFFB317),
+        // ),
+
         appBar: AppBar(
-          title: const Text(
-            _title,
-            style: TextStyle(color: Colors.black, fontFamily: "InterR"),
-          ),
-          actions: <Widget>[
-            FlatButton(
-              textColor: Colors.black,
-              child: Text("Skip"),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BottomNavigation(),
-                ),
-              ),
-              shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-            ),
-          ],
-          //backgroundColor: Color(0xFF32C7CC),
+          title: Text('Signup as Service Provider'),
           backgroundColor: Color(0xFFFFB317),
         ),
         body: SingleChildScrollView(child: const MyStatefulWidget()),
@@ -79,6 +108,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
+            height: 21,
+
+          ),
+
+          Container(
               padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               alignment: Alignment.topLeft,
               child: const Text(
@@ -105,7 +139,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -129,7 +163,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(
@@ -155,7 +189,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide:
-                      const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
+                  const BorderSide(color: Color(0xFF9A9A9A), width: 1.0),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 focusedBorder: OutlineInputBorder(

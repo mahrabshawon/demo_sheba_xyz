@@ -41,6 +41,7 @@ class BottomNavigation extends StatefulWidget {
 
 class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
+  static Color primary = Color(0xFFFFB317);
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
@@ -72,7 +73,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
           currentIndex: _selectedIndex,
           selectedItemColor: Colors.black,
           onTap: _onItemTapped,
-          backgroundColor: const Color(0xFF6AF0FF),
+          backgroundColor: primary,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),

@@ -23,27 +23,27 @@ class Demo_XYZ extends StatelessWidget {
           actions: <Widget>[
             FlatButton(
               textColor: Colors.black,
+              child: Text("Skip"),
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => BottomNavigation(),
                 ),
               ),
-              child: Text("Skip"),
               shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
             ),
           ],
           //backgroundColor: Color(0xFF32C7CC),
           backgroundColor: Color(0xFFFFB317),
         ),
-        body: const SignInRoute(),
+        body: SignInRoute(),
       ),
     );
   }
 }
 
 class SignInRoute extends StatefulWidget {
-  const SignInRoute({Key? key}) : super(key: key);
+  SignInRoute({Key? key}) : super(key: key);
 
   @override
   State<SignInRoute> createState() => _SignInRouteState();
@@ -78,13 +78,14 @@ class _SignInRouteState extends State<SignInRoute> {
             Container(
                 alignment: Alignment.topLeft,
                 padding: EdgeInsets.all(15),
-                child: const Text(
+                child: Text(
                   'Welcome Back!\nLet\'s sign you in',
                   style: TextStyle(
-                      fontFamily: "InterR",
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25),
+                    fontFamily: "InterR",
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 3.h,
+                  ),
                 )),
             SizedBox(
               height: 5.h,
@@ -92,8 +93,8 @@ class _SignInRouteState extends State<SignInRoute> {
             //UserName
             Container(
               width: MediaQuery.of(context).size.width,
-              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
               height: 10.h,
+              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               //color: Colors.amber,
               child: TextField(
                 controller: nameController,
@@ -120,7 +121,7 @@ class _SignInRouteState extends State<SignInRoute> {
             Container(
               width: MediaQuery.of(context).size.width,
               height: 10.h,
-              padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               //height: 18.h,
               child: TextField(
                 cursorColor: Color(0xFFFFB317),
@@ -144,7 +145,7 @@ class _SignInRouteState extends State<SignInRoute> {
             ),
             Container(
               alignment: Alignment.topLeft,
-              padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               child: TextButton(
                 onPressed: () {
                   //forgot password screen
@@ -158,18 +159,22 @@ class _SignInRouteState extends State<SignInRoute> {
             Container(
                 width: double.infinity,
                 height: 10.h,
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+                padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: ElevatedButton(
+
+
                   child: Text(
                     'Sign in',
                     style: TextStyle(
+
                         color: Colors.black,
-                        fontSize: 18,
+                        fontSize: 2.h,
                         fontFamily: "InterR",
                         fontWeight: FontWeight.bold),
+
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xFFFFB317),
@@ -182,20 +187,24 @@ class _SignInRouteState extends State<SignInRoute> {
             Container(
               width: double.infinity,
               height: 20.h,
-              child: Row(
+
+              padding: EdgeInsets.fromLTRB(5.w, 5.w, 5.w, 5.w),
+              //color: Colors.amber,
+              alignment: Alignment.topCenter,
+              child: Wrap(
                 children: <Widget>[
-                  const Text(
+                  Text(
                     'Does not have account?  ',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 1.8.h,
                     ),
                   ),
                   GestureDetector(
-                    child: const Text(
+                    child: Text(
                       'Register Now',
                       style: TextStyle(
                           color: Color(0xFFFFB317),
-                          fontSize: 16,
+                          fontSize: 1.8.h,
                           fontFamily: "InterR",
                           fontWeight: FontWeight.bold),
                     ),
@@ -205,9 +214,8 @@ class _SignInRouteState extends State<SignInRoute> {
                         builder: (context) => SignUpRoute(),
                       ),
                     ),
-                  )
+                  ),
                 ],
-                mainAxisAlignment: MainAxisAlignment.center,
               ),
             ),
           ],

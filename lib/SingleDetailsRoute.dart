@@ -35,7 +35,7 @@ class SingleDetailsRoute extends StatelessWidget {
               MediaQuery.of(context).padding.top - // top padding
               kBottomNavigationBarHeight,
           child: SingleChildScrollView(
-            child: Column(
+            child: Wrap(
               children: [
                 // Padding(
                 //   padding:
@@ -210,22 +210,14 @@ class SingleDetailsRoute extends StatelessWidget {
 
                 //banner image
                 Container(
-                    padding: EdgeInsets.fromLTRB(10, 8, 10, 8),
+                    padding: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
                     width: width,
-                    height: 30.h,
-                    child: GestureDetector(
-                      onTap: () => {
-                        //print('$checkedIndex is when title $subCategories[checkedIndex].title'),
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image:
-                                AssetImage(subCategories[checkedIndex].image),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                    child: Container(
+                      child: Expanded(
+                        // your image goes here which will take as much height as possible.
+                        child: Image.asset(subCategories[checkedIndex].image, fit: BoxFit.contain),
                       ),
+
                     )),
                 // After Banner text
                 Container(
@@ -283,7 +275,7 @@ class SingleDetailsRoute extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image:
-                                          AssetImage('assets/close-small.png'),
+                                      AssetImage('assets/close-small.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -310,7 +302,7 @@ class SingleDetailsRoute extends StatelessWidget {
                                   decoration: BoxDecoration(
                                     image: DecorationImage(
                                       image:
-                                          AssetImage('assets/close-small.png'),
+                                      AssetImage('assets/close-small.png'),
                                       fit: BoxFit.cover,
                                     ),
                                   ),
@@ -336,7 +328,7 @@ class SingleDetailsRoute extends StatelessWidget {
                   child: Text(
                     'Whats Included?',
                     style:
-                        TextStyle(fontSize: 2.5.h, fontWeight: FontWeight.bold),
+                    TextStyle(fontSize: 2.5.h, fontWeight: FontWeight.bold),
                   ),
                 ),
                 Container(
@@ -377,32 +369,26 @@ class SingleDetailsRoute extends StatelessWidget {
         bottomNavigationBar: Theme(
           data: Theme.of(context).copyWith(),
           child: Container(
-            child: Container(
-              padding: EdgeInsets.all(8),
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(primary: Color(0xFFFFB317)
-                    // background
-                    ),
-                child: Text(
-                  'Order Now',
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
-                ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      //subCategories[index].serID
-                      builder: (context) => orderPage(),
-                    ),
-                  );
-                },
+            padding: EdgeInsets.all(8),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFFFFB317), // background
               ),
+              child: Text(
+                'Order Now',
+                style: TextStyle(color: Colors.black),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    //subCategories[index].serID
+                    builder: (context) => orderPage(),
+                  ),
+                );
+              },
             ),
           ),
         ));
   }
-
-  orderPage() {}
 }

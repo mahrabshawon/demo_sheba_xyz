@@ -12,7 +12,12 @@ class orderPage extends StatelessWidget {
       theme: ThemeData(
           colorSchemeSeed: const Color(0xff6750a4), useMaterial3: true),
       home: Scaffold(
-        appBar: AppBar(title: const Text('Ac Basic Service')),
+        appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+            title: const Text('Ac Basic Service')),
         body: Column(
           children: const <Widget>[
             ElevatedCardExample(),
