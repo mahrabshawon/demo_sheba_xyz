@@ -1,13 +1,11 @@
-import 'package:demo_xyz/SignUpRoute.dart';
-import 'package:demo_xyz/serviceReq.dart';
+
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-import 'help.dart';
 import 'main.dart';
 
-class Demo_XYZ extends StatelessWidget {
-  const Demo_XYZ({Key? key}) : super(key: key);
+class servicereq extends StatelessWidget {
+  const servicereq({Key? key}) : super(key: key);
 
   static const String _title = 'Demo.xyz';
 
@@ -18,77 +16,63 @@ class Demo_XYZ extends StatelessWidget {
       title: _title,
       home: Scaffold(
         appBar: AppBar(
-          title: const Text(
-            _title,
+          title: Text('Service Request',
             style: TextStyle(color: Colors.black, fontFamily: "InterR"),
           ),
-          actions: <Widget>[
-            FlatButton(
-              textColor: Colors.black,
-              child: Text("Skip"),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => BottomNavigation(),
-                ),
-              ),
-              shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
-            ),
-          ],
+
+
           //backgroundColor: Color(0xFF32C7CC),
           backgroundColor: Color(0xFFFFB317),
         ),
-        body: SignInRoute(),
+
+        body: serviceReq(),
+
       ),
     );
   }
 }
 
-class SignInRoute extends StatefulWidget {
-  SignInRoute({Key? key}) : super(key: key);
+class serviceReq extends StatefulWidget {
+  serviceReq({Key? key}) : super(key: key);
 
   @override
-  State<SignInRoute> createState() => _SignInRouteState();
+  State<serviceReq> createState() => _serviceReqState();
 }
 
-class _SignInRouteState extends State<SignInRoute> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class _serviceReqState extends State<serviceReq> {
+  TextEditingController serviceController = TextEditingController();
+  TextEditingController contactController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+
       scrollDirection: Axis.vertical,
+
       child: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.all(15),
+        padding: EdgeInsets.only(top:0),
         decoration: BoxDecoration(
           color: Colors.white,
-          // gradient: LinearGradient(
-          //   begin: Alignment.topRight,
-          //   end: Alignment.bottomLeft,
-          //   colors: [
-          //     Color(0xFF32C7CC),
-          //     Color(0xFF07D765),
-          //   ],
-          // ),
         ),
+
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
+
           children: [
+
             Container(
-                alignment: Alignment.topLeft,
-                padding: EdgeInsets.all(15),
-                child: Text(
-                  'Welcome Back!\nLet\'s sign you in',
-                  style: TextStyle(
-                    fontFamily: "InterR",
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 3.h,
-                  ),
-                )),
+              width: MediaQuery.of(context).size.width,
+              height: 35.h,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/tell-us.png'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+
             SizedBox(
               height: 5.h,
             ),
@@ -99,7 +83,7 @@ class _SignInRouteState extends State<SignInRoute> {
               padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
               //color: Colors.amber,
               child: TextField(
-                controller: nameController,
+                controller: serviceController,
                 //readOnly: true,
                 showCursor: true,
                 cursorColor: Color(0xFFFFB317),
@@ -114,7 +98,7 @@ class _SignInRouteState extends State<SignInRoute> {
                     const BorderSide(color: Colors.black, width: 1.0),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  hintText: 'UserName',
+                  hintText: 'Service Name',
                 ),
               ),
             ),
@@ -128,7 +112,7 @@ class _SignInRouteState extends State<SignInRoute> {
               child: TextField(
                 cursorColor: Color(0xFFFFB317),
                 obscureText: true,
-                controller: passwordController,
+                controller:contactController,
                 showCursor: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -141,23 +125,11 @@ class _SignInRouteState extends State<SignInRoute> {
                     const BorderSide(color: Colors.black, width: 1.0),
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  hintText: 'Password',
+                  hintText: 'Contact Number',
                 ),
               ),
             ),
-            Container(
-              alignment: Alignment.topLeft,
-              padding: EdgeInsets.fromLTRB(5.w, 0, 5.w, 5.w),
-              child: TextButton(
-                onPressed: () {
-                  //forgot password screen
-                },
-                child: const Text(
-                  'Forgot Password?',
-                  style: TextStyle(color: Colors.black),
-                ),
-              ),
-            ),
+
             Container(
                 width: double.infinity,
                 height: 10.h,
@@ -169,7 +141,7 @@ class _SignInRouteState extends State<SignInRoute> {
 
 
                   child: Text(
-                    'Sign in',
+                    'submit',
                     style: TextStyle(
 
                         color: Colors.black,
@@ -182,8 +154,8 @@ class _SignInRouteState extends State<SignInRoute> {
                     primary: Color(0xFFFFB317),
                   ),
                   onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
+                    print(serviceController.text);
+                    print(contactController.text);
                   },
                 )),
             Container(
@@ -193,32 +165,7 @@ class _SignInRouteState extends State<SignInRoute> {
               padding: EdgeInsets.fromLTRB(5.w, 5.w, 5.w, 5.w),
               //color: Colors.amber,
               alignment: Alignment.topCenter,
-              child: Wrap(
-                children: <Widget>[
-                  Text(
-                    'Does not have account?  ',
-                    style: TextStyle(
-                      fontSize: 1.8.h,
-                    ),
-                  ),
-                  GestureDetector(
-                    child: Text(
-                      'Register Now',
-                      style: TextStyle(
-                          color: Color(0xFFFFB317),
-                          fontSize: 1.8.h,
-                          fontFamily: "InterR",
-                          fontWeight: FontWeight.bold),
-                    ),
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => help(),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+
             ),
           ],
         ),

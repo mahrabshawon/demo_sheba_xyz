@@ -41,7 +41,8 @@ dependencies:
   collapsible_sidebar: ^2.0.1+2
 #  google_maps_widget: ^1.0.4
 #  google_maps_flutter: ^0.4.0
-  google_maps_flutter: ^2.1.8
+
+  google_maps_flutter: ^2.1.10
   modal_progress_hud_nsn: ^0.2.1
   http: ^0.13.4
   image_picker: ^0.8.5+3

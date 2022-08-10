@@ -37,7 +37,6 @@ class _callOptionsState extends State<callOptions> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-
               child: ElevatedButton.icon(
                 icon: Icon(
                   Icons.call,
@@ -49,8 +48,10 @@ class _callOptionsState extends State<callOptions> {
                   // +880 01613027296
                 },
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Color(0xFFFF9900),),
-              ),
+                  backgroundColor: MaterialStateProperty.all(
+                    Color(0xFFFF9900),
+                  ),
+                ),
                 label: Text('Make A Call'),
               ),
             ),
@@ -67,7 +68,9 @@ class _callOptionsState extends State<callOptions> {
                 launch('sms:+880 01613027296?bodyHi Wellcome to Demo.xyz');
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color(0xFFFF9900),),
+                backgroundColor: MaterialStateProperty.all(
+                  Color(0xFFFF9900),
+                ),
               ),
               label: Text('Send a SMS'),
             ),
@@ -85,7 +88,9 @@ class _callOptionsState extends State<callOptions> {
                 // shawon.womenindigital@gmail.com?subject=This is Subject Title&body=This is Body of Email
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Color(0xFFFF9900),),
+                backgroundColor: MaterialStateProperty.all(
+                  Color(0xFFFF9900),
+                ),
               ),
               label: Text('Send A Email'),
             ),

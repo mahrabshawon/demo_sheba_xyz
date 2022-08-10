@@ -3,10 +3,13 @@ import 'package:demo_xyz/Model/Category.dart';
 import 'package:demo_xyz/MaterialColor.dart';
 import 'package:demo_xyz/Widget/CustomAppBar.dart';
 import 'package:demo_xyz/Widget/Slider.dart';
+import 'package:demo_xyz/serviceReq.dart';
 import 'package:demo_xyz/splashScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
+import 'help.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,7 +51,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     HomeRoute(),
     HomeRoute(),
     HomeRoute(),
-    HomeRoute(),
+    help(),
     HomeRoute(),
   ];
 
@@ -82,6 +85,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             BottomNavigationBarItem(
               icon: Icon(Icons.inbox),
               label: "Inbox",
+
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.add),
