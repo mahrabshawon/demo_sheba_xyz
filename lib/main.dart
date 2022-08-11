@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'help.dart';
+import 'myOrder.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeRoute(),
     HomeRoute(),
-    HomeRoute(),
+    myOrder(),
     help(),
     HomeRoute(),
   ];

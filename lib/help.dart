@@ -48,7 +48,7 @@ class help extends StatelessWidget {
                               icon: Icon(
                                 Icons.medical_services_rounded,
                                 color: Colors.black,
-                                size: 7.h,
+                                size: 5.h,
                               ),
                               onPressed: () {
                                 Navigator.push(
@@ -80,7 +80,7 @@ class help extends StatelessWidget {
                               icon: Icon(
                                 Icons.contact_page,
                                 color: Colors.black,
-                                size: 7.h,
+                                size: 5.h,
                               ),
                               onPressed: () {
                                 Navigator.push(
