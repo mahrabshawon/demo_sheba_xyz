@@ -1,4 +1,5 @@
 // import 'package:demo_xyz/AllServicesRoute.dart';
+import 'package:demo_xyz/mapFinal.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -41,12 +42,21 @@ class _HomeRouteState extends State<HomeRoute> {
           child: Column(children: [
             Container(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Mohammadpur",
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xFFFFB317),
-                  fontFamily: "InterR",
+              child: GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => mapGoogle()),
+                  );
+                },
+                child: Text(
+                  "Mohammadpur",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFFFFB317),
+                    fontFamily: "InterR",
+                  ),
                 ),
               ),
             ),

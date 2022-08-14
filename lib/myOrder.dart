@@ -18,6 +18,7 @@ import 'package:responsive_sizer/responsive_sizer.dart';
 import 'SignInRoute.dart';
 import 'SignUpRoute.dart';
 import 'callOption.dart';
+import 'inbox.dart';
 import 'order.dart';
 
 class myOrder extends StatelessWidget {
@@ -32,6 +33,7 @@ class myOrder extends StatelessWidget {
           title: Text(
             'Order',
             style: TextStyle(color: Colors.black, fontFamily: "InterR"),
+
           ),
 
           //backgroundColor: Color(0xFF32C7CC),
@@ -57,14 +59,15 @@ class myOrder extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              right: 17, left: 17, top: 11, bottom: 3),
+                              right: 31, left: 31, top: 11, bottom: 3),
                           child: Container(
+                            height: 7.h,
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton.icon(
                               icon: Icon(
                                 Icons.login_rounded,
                                 color: Colors.black,
-                                size: 5.h,
+                                size: 3.h,
                               ),
                               onPressed: () {
                                 Navigator.push(
@@ -90,14 +93,15 @@ class myOrder extends StatelessWidget {
                         //         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              right: 17, left: 17, top: 11, bottom: 3),
+                              right: 31, left: 31, top: 11, bottom: 3),
                           child: Container(
+                            height: 7.h,
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton.icon(
                               icon: Icon(
                                 Icons.app_registration_rounded,
                                 color: Colors.black,
-                                size: 5.h,
+                                size: 3.h,
                               ),
                               onPressed: () {
                                 Navigator.push(

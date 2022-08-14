@@ -41,14 +41,15 @@ class help extends StatelessWidget {
                     child: Wrap(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 17, left: 17),
+                          padding: const EdgeInsets.only(right: 31, left: 31),
                           child: Container(
+                            height: 7.h,
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton.icon(
                               icon: Icon(
                                 Icons.medical_services_rounded,
                                 color: Colors.black,
-                                size: 5.h,
+                                size: 3.h,
                               ),
                               onPressed: () {
                                 Navigator.push(
@@ -73,14 +74,15 @@ class help extends StatelessWidget {
                         //           height: 5.h,
                         //         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 17, left: 17,top: 11,bottom: 1),
+                          padding: const EdgeInsets.only(right: 31, left: 31,top: 11,bottom: 1),
                           child: Container(
+                            height: 7.h,
                             width: MediaQuery.of(context).size.width,
                             child: ElevatedButton.icon(
                               icon: Icon(
                                 Icons.contact_page,
                                 color: Colors.black,
-                                size: 5.h,
+                                size: 3.h,
                               ),
                               onPressed: () {
                                 Navigator.push(

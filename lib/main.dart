@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'help.dart';
+import 'inbox.dart';
 import 'myOrder.dart';
 
 void main() {
@@ -47,10 +48,10 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static Color primary = Color(0xFFFFB317);
   static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeRoute(),
-    HomeRoute(),
+    inbox(),
     myOrder(),
     help(),
     HomeRoute(),
@@ -86,7 +87,6 @@ class _BottomNavigationState extends State<BottomNavigation> {
             BottomNavigationBarItem(
               icon: Icon(Icons.inbox),
               label: "Inbox",
-
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.add),
