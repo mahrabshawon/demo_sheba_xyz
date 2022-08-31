@@ -18,6 +18,8 @@ class loginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+
       title: 'Login',
       home: HomePage(),
     );
@@ -145,7 +147,7 @@ class _loginScreenState extends State<loginScreen> {
                 print(user);
                 if (user != null) {
                   Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (context) => Demo_XYZ(),
+                    builder: (context) => HomeRoute(),
                   ));
                 }
               },
