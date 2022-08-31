@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "119738329578",
+    "project_id": "demoxyz-344f9",
+    "storage_bucket": "demoxyz-344f9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:119738329578:android:94035078b3cceecbc2aa93",
+        "android_client_info": {
+          "package_name": "com.example.demo_sheba_xyz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "119738329578-bmq6n1c0piudovj08htbev7p0rbi11su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzeFLhoEnlHAZ2hih-8sh-SHV_pluY3XI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "119738329578-bmq6n1c0piudovj08htbev7p0rbi11su.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

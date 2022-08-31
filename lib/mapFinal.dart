@@ -15,6 +15,7 @@ class _mapGoogleState extends State<mapGoogle> {
 
   static const LatLng _center = const LatLng(45.521563, -122.677433);
 
+
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
@@ -25,8 +26,8 @@ class _mapGoogleState extends State<mapGoogle> {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Google Map'),
-          backgroundColor: Colors.green[700],
+          title: Text('Google Map1'),
+          backgroundColor:  Color(0xFFFFB317),
         ),
         body: GoogleMap(
           onMapCreated: _onMapCreated,

@@ -13,6 +13,6 @@ class Category {
     Category(4, "assets/o5_Group.png", "Car Care Services"),
     Category(5, "assets/o6_Group.png", "Cleaning & Pest"),
     Category(6, "assets/o7_Group.png", "Painting & Renovation"),
-    Category(7, "assets/o8_Group.png", "Packing & Shifting")
+    Category(7, "assets/o8_Group.png", "Packing & Shifting"),
   ];
 }

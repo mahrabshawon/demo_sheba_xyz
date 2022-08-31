@@ -35,6 +35,7 @@ class SingleDetailsRoute extends StatelessWidget {
             MediaQuery.of(context).padding.top - // top padding
             kBottomNavigationBarHeight,
         child: SingleChildScrollView(
+
           child: Wrap(
             children: [
               // Padding(
@@ -221,7 +222,8 @@ class SingleDetailsRoute extends StatelessWidget {
                   )),
               // After Banner text
               Container(
-                padding: EdgeInsets.fromLTRB(2.5.w, 0, 2.5.w, 8),
+
+                padding: EdgeInsets.fromLTRB(2.5.w, 0, 2.5.w,8),
                 width: width,
                 height: 8.h,
                 child: Row(

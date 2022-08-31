@@ -21,3 +21,4 @@ class SubCategory {
     SubCategory(10, "assets/Frame10.png", "Packing &  Shifting", 3, ""),
   ];
 }
+

@@ -9,11 +9,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'MoreOptions.dart';
 import 'help.dart';
 import 'inbox.dart';
 import 'myOrder.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(const MyApp());
 }
 
@@ -54,7 +61,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
     inbox(),
     myOrder(),
     help(),
-    HomeRoute(),
+    moreOptions(),
   ];
 
   void _onItemTapped(int index) {

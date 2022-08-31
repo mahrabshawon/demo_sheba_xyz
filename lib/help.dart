@@ -74,7 +74,7 @@ class help extends StatelessWidget {
                         //           height: 5.h,
                         //         ),
                         Padding(
-                          padding: const EdgeInsets.only(right: 31, left: 31,top: 11,bottom: 1),
+                          padding: const EdgeInsets.only(right: 31, left: 31,top: 11,bottom: 11),
                           child: Container(
                             height: 7.h,
                             width: MediaQuery.of(context).size.width,

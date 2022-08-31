@@ -68,7 +68,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
               //height: MediaQuery.of(context).size.height,
               alignment: Alignment.topCenter,
               decoration: BoxDecoration(color: Colors.white),
-              child: detailsView(widget.checkedIndex, widget.subCategories),
+              child: detailsView(widget.checkedIndex,widget.subCategories),
             )
           ],
         ),
@@ -191,6 +191,7 @@ class _AllServiceRouteState extends State<AllServiceRoute> {
                           // subCategories[index].serID
                           builder: (context) =>
                               SingleDetailsRoute(subCat[index].serID.toInt()),
+
                         ),
                       ),
                     },

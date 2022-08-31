@@ -59,7 +59,7 @@ class myOrder extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(
-                              right: 31, left: 31, top: 11, bottom: 3),
+                              right: 31, left: 31, top: 11, bottom: 11),
                           child: Container(
                             height: 7.h,
                             width: MediaQuery.of(context).size.width,
@@ -93,7 +93,7 @@ class myOrder extends StatelessWidget {
                         //         ),
                         Padding(
                           padding: const EdgeInsets.only(
-                              right: 31, left: 31, top: 11, bottom: 3),
+                              right: 31, left: 31, top: 11, bottom: 11),
                           child: Container(
                             height: 7.h,
                             width: MediaQuery.of(context).size.width,
@@ -130,3 +130,6 @@ class myOrder extends StatelessWidget {
     );
   }
 }
+
+
+
