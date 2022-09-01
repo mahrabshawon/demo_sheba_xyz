@@ -5,12 +5,11 @@ import 'package:flutter/material.dart';
 import 'HomeRoute.dart';
 import 'SignInRoute.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(loginPage());
 }
-
 
 class loginPage extends StatelessWidget {
   const loginPage({Key? key}) : super(key: key);
@@ -19,7 +18,6 @@ class loginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       title: 'Login',
       home: HomePage(),
     );
