@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-import 'HomeRoute.dart';
-import 'SignInRoute.dart';
+import '../HomeRoute.dart';
+import '../SignInRoute.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -67,8 +67,8 @@ class _loginScreenState extends State<loginScreen> {
   //Login Function
   static Future<User?> loginUsingEmailPassword(
       {required String email,
-      required String password,
-      required BuildContext context}) async {
+        required String password,
+        required BuildContext context}) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     User? user;
     try {
@@ -154,6 +154,7 @@ class _loginScreenState extends State<loginScreen> {
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 17.1,
+
                 ),
               ),
             ),

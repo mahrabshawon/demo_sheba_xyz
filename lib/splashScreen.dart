@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:demo_xyz/signIn_api.dart';
 import 'package:flutter/material.dart';
 import 'SignInRoute.dart';
-import 'loginPageAuth.dart';
+import 'Authentication/loginPageAuth.dart';
 import 'main.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
       () {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
-            builder: (_) => loginPage(),
+            builder: (_) => SignInScreenn(),
           ),
         );
       },
