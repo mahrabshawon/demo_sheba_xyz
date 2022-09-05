@@ -6,6 +6,7 @@ import 'SignInRoute.dart';
 import 'Authentication/loginPageAuth.dart';
 import 'main.dart';
 
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
