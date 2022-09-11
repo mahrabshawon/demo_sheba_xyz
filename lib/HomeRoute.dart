@@ -1,4 +1,6 @@
 // import 'package:demo_xyz/AllServicesRoute.dart';
+import 'dart:ffi';
+
 import 'package:demo_xyz/mapFinal.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -112,7 +114,8 @@ class _HomeRouteState extends State<HomeRoute> {
               CustomizeSlider(images),
               //Categories
               Container(
-                //height: 42.h,
+                // height: 42.h,
+
                 width: width,
                 alignment: Alignment.center,
                 margin: EdgeInsets.fromLTRB(2.5.w, 1.5.h, 2.5.w, 1.5.h),
@@ -122,12 +125,19 @@ class _HomeRouteState extends State<HomeRoute> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
+
                   //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Wrap(
+                      spacing: 23.0,
+                      runSpacing: 30,
+
                       children: [
                         _singleCategory(
-                            categories[0].image, categories[0].title, 0),
+
+                            categories[0].image, categories[0].title, 0,
+
+                        ),
                         _singleCategory(
                             categories[1].image, categories[1].title, 1),
                         _singleCategory(
@@ -143,7 +153,21 @@ class _HomeRouteState extends State<HomeRoute> {
                         _singleCategory(
                             categories[7].image, categories[7].title, 7),
                       ],
+
                     ),
+                    // Wrap(
+                    //
+                    //   children: [
+                    //
+                    //     _singleCategory(
+                    //         categories[5].image, categories[5].title, 5),
+                    //     _singleCategory(
+                    //         categories[6].image, categories[6].title, 6),
+                    //     _singleCategory(
+                    //         categories[7].image, categories[7].title, 7),
+                    //   ],
+                    //
+                    // ),
                     const Divider(
                       thickness: 1, // thickness of the line
                       indent: 20, // empty space to the leading edge of divider.
@@ -151,7 +175,7 @@ class _HomeRouteState extends State<HomeRoute> {
                           20, // empty space to the trailing edge of the divider.
                       color: Color(
                           0xFF9A9A9A), // The color to use when painting the line.
-                      height: 10, // The divider's height extent.
+                      height:11, // The divider's height extent.
                     ),
                     InkWell(
                       child: Container(
@@ -938,3 +962,6 @@ class _HomeRouteState extends State<HomeRoute> {
     "assets/bestdeal.png",
   ];
 }
+
+
+

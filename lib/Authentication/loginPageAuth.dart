@@ -26,6 +26,29 @@ class _SignInScreennState extends State<SignInScreenn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          "Signin",
+          style: TextStyle(color: Colors.black, fontFamily: "InterR"),
+        ),
+        actions: <Widget>[
+          FlatButton(
+            textColor: Colors.black,
+            child: Text("Skip"),
+            onPressed: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => BottomNavigation(),
+              ),
+            ),
+            shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+          ),
+        ],
+
+        // backgroundColor: Colors.transparent,
+        backgroundColor: Color(0xFFFF9900),
+      ),
+
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
@@ -34,7 +57,7 @@ class _SignInScreennState extends State<SignInScreenn> {
             gradient: LinearGradient(colors: [
               hexStringToColor("FF9900"),
               hexStringToColor("FF9900"),
-              hexStringToColor("FF9900")
+              hexStringToColor("FF9900"),
             ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
           child: Padding(
@@ -42,7 +65,7 @@ class _SignInScreennState extends State<SignInScreenn> {
                 20, MediaQuery.of(context).size.height * 0.2, 20, 0),
             child: Column(
               children: <Widget>[
-                Text(''),
+                Text('Lets login here'),
                 // logoWidget("assets/images/logo1.png"),
                 const SizedBox(
                   height: 30,
