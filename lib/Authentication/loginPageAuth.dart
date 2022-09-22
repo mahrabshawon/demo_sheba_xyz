@@ -48,17 +48,15 @@ class _SignInScreennState extends State<SignInScreenn> {
         // backgroundColor: Colors.transparent,
         backgroundColor: Color(0xFFFF9900),
       ),
-
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-
         decoration: BoxDecoration(
             gradient: LinearGradient(colors: [
-              hexStringToColor("FF9900"),
-              hexStringToColor("FF9900"),
-              hexStringToColor("FF9900"),
-            ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+          hexStringToColor("FF9900"),
+          hexStringToColor("FF9900"),
+          hexStringToColor("FF9900"),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
         child: SingleChildScrollView(
           child: Padding(
             padding: EdgeInsets.fromLTRB(
@@ -84,11 +82,13 @@ class _SignInScreennState extends State<SignInScreenn> {
                 firebaseUIButton(context, "Sign In", () {
                   FirebaseAuth.instance
                       .signInWithEmailAndPassword(
-                      email: _emailTextController.text,
-                      password: _passwordTextController.text)
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
                       .then((value) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => BottomNavigation()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => BottomNavigation()));
                   }).onError((error, stackTrace) {
                     print("Error ${error.toString()}");
                   });

@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:demo_xyz/signIn_api.dart';
 import 'package:flutter/material.dart';
+import 'Authentication/home_ss.dart';
 import 'SignInRoute.dart';
 import 'Authentication/loginPageAuth.dart';
 import 'main.dart';
@@ -39,6 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
         alignment: Alignment.center,
         padding: EdgeInsets.all(17.0),
         decoration: BoxDecoration(
+
           // color: Color();
             image: DecorationImage(
               image: AssetImage('assets/landing page.png'),

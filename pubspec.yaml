@@ -51,6 +51,10 @@ dependencies:
   url_launcher: ^6.1.5
   firebase_core: ^1.21.1
   firebase_auth: ^3.7.0
+  flutter_svg_provider: ^1.0.3
+  size_config: ^1.0.2
+  dooadex_constants: ^0.0.8
+
 
 
 
